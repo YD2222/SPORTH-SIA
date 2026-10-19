@@ -1,103 +1,254 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { Hero } from "@/components/home/Hero";
+import { Doors } from "@/components/home/Doors";
+import { Philosophy } from "@/components/home/Philosophy";
+import { NewsCards } from "@/components/NewsCards";
+import { FinalCta } from "@/components/FinalCta";
+import { CharlyButton } from "@/components/Charly";
+import { ImageReveal, Reveal, RevealWords } from "@/components/motion";
+import { btn, container } from "@/components/ui";
+import { activeNews } from "@/content/news";
+import { getService } from "@/content/services";
+import { site, signatures } from "@/content/site";
+
+export const revalidate = 3600;
+
+const pillars = [
+  { title: "Une expertise PhysioGym", text: "Le site pilote est exploité par PhysioGym, à Paris 7e, avec des intervenants identifiés selon leur statut." },
+  { title: "Un accompagnement personnalisé", text: "Chaque personne a son histoire, ses attentes et son rythme. Nous partons de vous." },
+  { title: "Quatre personnes maximum", text: "En petit groupe comme en séance individuelle, le temps de l'attention est préservé." },
+  { title: "Sans bilan obligatoire", text: "Vous pouvez réserver directement la prestation qui vous attire, en quelques clics." },
+];
 
 export default function Home() {
+  const news = activeNews().slice(0, 3);
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <Hero />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Présentation courte */}
+      <section aria-label="Notre démarche" className="pt-10 pb-4 lg:pt-16">
+        <div className={`${container} grid gap-6 lg:grid-cols-12`}>
+          <Reveal className="lg:col-span-8 lg:col-start-3">
+            <p className="font-display text-center text-[clamp(1.6rem,3vw,2.5rem)] leading-snug font-light">
+              Une démarche individualisée associant <span className="text-or italic">évaluation</span>, mouvement, récupération et silhouette — pour avancer à
+              votre rythme.
+            </p>
+          </Reveal>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Quatre univers */}
+      <section id="univers" aria-labelledby="univers-title" className="scroll-mt-24 py-24 lg:py-32">
+        <div className={container}>
+          <div className="mb-14 flex flex-col gap-6 lg:mb-20 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="eyebrow text-or">Quatre univers, quatre intentions</p>
+              <RevealWords
+                as="h2"
+                text="Choisissez votre porte d'entrée."
+                emphasis={["porte"]}
+                className="font-display mt-5 max-w-3xl text-[clamp(2.4rem,5vw,4.4rem)] leading-[1.02] font-light"
+              />
+            </div>
+            <Reveal delay={0.2}>
+              <p className="max-w-sm text-lg leading-relaxed text-nuit/70">{signatures.renouer}</p>
+            </Reveal>
+          </div>
+          <Doors />
+        </div>
+      </section>
+
+      {/* Mieux comprendre son corps — BODY 360 */}
+      <section aria-labelledby="bilans-title" className="pb-24 lg:pb-32">
+        <div className={container}>
+          <div className="grain relative grid gap-10 overflow-hidden rounded-[32px] bg-nuit px-7 py-12 text-ivoire sm:px-12 lg:grid-cols-12 lg:items-center lg:py-16">
+            <div className="lg:col-span-6">
+              <p className="eyebrow text-or-clair">SPORTHESIA BODY 360</p>
+              <h2 id="bilans-title" className="font-display mt-4 text-[clamp(2.2rem,4vw,3.4rem)] leading-[1.04] font-light">
+                Mieux comprendre <span className="text-or-clair italic">son corps</span>
+              </h2>
+              <p className="mt-5 max-w-lg text-lg leading-relaxed text-ivoire/75">
+                Mieux comprendre son corps pour avancer avec des repères concrets. Découvrez nos évaluations corporelles, du bilan de mesures ANOVATOR à
+                l&apos;accompagnement personnalisé SPORTHESIA BODY 360.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2 lg:col-span-6">
+              {[
+                { s: getService("bilan-anovator"), href: "/body-360#bilan-anovator", cta: "Découvrir le bilan ANOVATOR" },
+                { s: getService("bilan-body-360"), href: "/body-360#bilan-body-360", cta: "Découvrir BODY 360" },
+              ].map(({ s, href, cta }, i) =>
+                s ? (
+                  <Reveal key={s.id} delay={i * 0.1}>
+                    <Link href={href} className="group flex h-full flex-col rounded-[24px] border border-ivoire/15 bg-ivoire/5 p-6 transition-colors duration-500 hover:border-or-clair hover:bg-ivoire/10">
+                      <span className="font-display text-4xl">{s.priceLabel}</span>
+                      <span className="mt-3 font-semibold">{s.name}</span>
+                      <span className="mt-1 text-sm text-ivoire/60">{s.durationLabel}</span>
+                      <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.72rem] font-semibold tracking-[0.16em] text-or-clair uppercase">
+                        {cta} <ArrowUpRight className="size-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </span>
+                    </Link>
+                  </Reveal>
+                ) : null,
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Philosophy />
+
+      {/* L'accompagnement humain */}
+      <section aria-labelledby="accomp-title" className="bg-brume/70 py-24 lg:py-36">
+        <div className={`${container} grid items-center gap-14 lg:grid-cols-12`}>
+          <div className="relative lg:col-span-6">
+            <ImageReveal className="relative aspect-[5/6] overflow-hidden rounded-[28px] lg:aspect-[4/5]">
+              <Image src="/images/accompagnement.jpg" alt="Praticien accompagnant une personne lors d'une séance individuelle" fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
+            </ImageReveal>
+            <Reveal delay={0.4} className="absolute -right-2 -bottom-8 w-[46%] max-w-[260px] overflow-hidden rounded-t-full rounded-b-[20px] border-[6px] border-brume shadow-xl sm:-right-6">
+              <div className="relative aspect-[3/4]">
+                <Image src="/images/senior.jpg" alt="Femme souriante faisant un exercice de mobilité des épaules" fill sizes="260px" className="object-cover" />
+              </div>
+            </Reveal>
+          </div>
+          <div className="lg:col-span-5 lg:col-start-8">
+            <p className="eyebrow text-or">Notre expertise</p>
+            <RevealWords
+              as="h2"
+              text="Un accompagnement qui s'adapte à vous"
+              emphasis={["vous"]}
+              className="font-display mt-5 text-[clamp(2.2rem,4vw,3.6rem)] leading-[1.04] font-light"
+            />
+            <Reveal delay={0.15}>
+              <div className="mt-8 space-y-5 text-lg leading-relaxed text-nuit/75">
+                <p>Chez SPORTHESIA, chaque personne possède son histoire, ses attentes et son rythme.</p>
+                <p>
+                  Notre approche associe différentes compétences pour vous proposer un accompagnement personnalisé, qu&apos;il s&apos;agisse de posture,
+                  d&apos;activité physique, de récupération ou de bien-être.
+                </p>
+                <p>
+                  Des professionnels indépendants pourront intervenir dans leurs domaines de compétence, notamment en activité physique adaptée et en
+                  kinésiologie de bien-être.
+                </p>
+                <p className="text-base text-nuit/60">
+                  SPORTHESIA® est une marque et un concept. Son site pilote parisien est exploité par PhysioGym, Paris 7e ; chaque prestation est vendue par le
+                  professionnel identifié sur sa fiche.
+                </p>
+              </div>
+              <Link href="/expertise" className={`${btn.link} mt-8`}>
+                Notre expertise <ArrowUpRight className="size-4 text-or" />
+              </Link>
+            </Reveal>
+            <dl className="mt-12 grid gap-x-8 gap-y-7 sm:grid-cols-2">
+              {pillars.map((p, i) => (
+                <Reveal key={p.title} delay={0.1 + i * 0.07}>
+                  <dt className="flex items-center gap-3 font-semibold">
+                    <span className="size-1.5 rounded-full bg-or" />
+                    {p.title}
+                  </dt>
+                  <dd className="mt-2 pl-[18px] text-[0.95rem] leading-relaxed text-nuit/65">{p.text}</dd>
+                </Reveal>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      {/* Kinésiologie de bien-être */}
+      <section aria-labelledby="kine-title" className="py-24 lg:py-32">
+        <div className={`${container} grid gap-10 lg:grid-cols-12`}>
+          <div className="lg:col-span-5">
+            <p className="eyebrow text-or">Accompagnement complémentaire</p>
+            <h2 id="kine-title" className="font-display mt-5 text-[clamp(2rem,3.4vw,3rem)] leading-[1.08] font-light">
+              Prendre en compte toutes les dimensions de son équilibre
+            </h2>
+          </div>
+          <Reveal className="space-y-5 text-lg leading-relaxed text-nuit/75 lg:col-span-6 lg:col-start-7">
+            <p>Notre vécu, nos émotions et les événements de la vie peuvent influencer notre façon de nous sentir et d&apos;aborder le quotidien.</p>
+            <p>
+              La kinésiologie de bien-être propose un espace d&apos;écoute et d&apos;accompagnement, dans une démarche non médicale, pour explorer certains
+              ressentis et favoriser une meilleure attention à soi.
+            </p>
+            <p className="border-l-2 border-or pl-5 text-base text-nuit/60">
+              Elle ne remplace ni un diagnostic médical, ni un traitement, ni un suivi psychologique lorsqu&apos;ils sont nécessaires. Prestations et tarifs
+              communiqués prochainement.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Besoin d'être orienté */}
+      <section className="pb-24 lg:pb-32">
+        <div className={container}>
+          <Reveal className="relative grid items-center gap-8 overflow-hidden rounded-[32px] bg-sable px-7 py-12 sm:px-12 lg:grid-cols-12 lg:py-16">
+            <div className="lg:col-span-7">
+              <p className="eyebrow text-or">Besoin d&apos;être orienté&nbsp;?</p>
+              <p className="font-display mt-4 text-[clamp(1.8rem,3vw,2.6rem)] leading-tight">
+                Une question sur une prestation, un tarif ou votre rendez-vous&nbsp;? Charly vous aide à trouver l&apos;information et vous oriente vers la
+                réservation adaptée.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">
+              <CharlyButton className={btn.primary}>Parler à Charly</CharlyButton>
+              <Link href="/reserver" className={btn.ghost}>
+                Réserver directement
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Actualités et offres */}
+      <section aria-labelledby="news-title" className="border-t border-nuit/10 py-24 lg:py-28">
+        <div className={container}>
+          <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
+            <div>
+              <p className="eyebrow text-or">En ce moment</p>
+              <h2 id="news-title" className="font-display mt-4 text-[clamp(2rem,3.6vw,3.2rem)] leading-tight font-light">
+                Nos actualités et offres du moment
+              </h2>
+            </div>
+            <Link href="/actualites" className={btn.link}>
+              Toutes les actualités <ArrowUpRight className="size-4 text-or" />
+            </Link>
+          </div>
+          <NewsCards items={news} />
+        </div>
+      </section>
+
+      <FinalCta />
+
+      {/* Informations pratiques */}
+      <section aria-label="Informations pratiques" className="bg-ivoire py-14">
+        <div className={`${container} grid gap-8 text-sm sm:grid-cols-3`}>
+          <div>
+            <p className="eyebrow text-or">Adresse</p>
+            <p className="mt-3 text-base">
+              {site.address.street}, {site.address.postalCode} {site.address.city}
+            </p>
+          </div>
+          <div>
+            <p className="eyebrow text-or">Horaires</p>
+            <ul className="mt-3 text-base">
+              {site.hours.map((h) => (
+                <li key={h.days}>
+                  {h.days} · {h.hours}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="eyebrow text-or">Contact</p>
+            <p className="mt-3 text-base">
+              <a href={`mailto:${site.email}`} className="underline decoration-or underline-offset-4">
+                {site.email}
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SPORTHESIA — site
 
-## Getting Started
-
-First, run the development server:
+Next.js 15 (App Router) · TypeScript · Tailwind CSS v4 · Motion · Lenis.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build && npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Modifier le contenu (sans toucher au code des pages)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Quoi | Fichier |
+|---|---|
+| Prestations, prix, durées, statut « prévisionnel », réservable ou non, FAQ | `src/content/services.ts` |
+| Actualités et offres (avec dates de validité) | `src/content/news.ts` |
+| Coordonnées, horaires, phrases signatures | `src/content/site.ts` |
+| Photos | `public/images/` |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Les mentions `TODO` et les surlignages dorés dans les pages légales signalent les informations à fournir par le client.
 
-## Learn More
+## Réservation
 
-To learn more about Next.js, take a look at the following resources:
+- API : `GET /api/availability`, `POST /api/bookings`.
+- Fournisseur : `src/lib/booking/` — démonstration en mémoire par défaut, planning connecté via `PLANNING_API_URL` (contrat : `docs/PLANNING_API.md`).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Photos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Photos d'ambiance provisoires issues d'Unsplash (licence Unsplash : usage commercial autorisé). À remplacer par le shooting des vrais locaux et intervenants.
