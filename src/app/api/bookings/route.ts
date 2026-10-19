@@ -8,6 +8,8 @@ export const dynamic = "force-dynamic";
 const hits = new Map<string, number[]>();
 function rateLimited(ip: string) {
   const now = Date.now();
+  // Purge des entrées expirées pour borner la mémoire.
+  if (hits.size > 5000) for (const [k, v] of hits) if (!v.some((t) => now - t < 10 * 60_000)) hits.delete(k);
   const recent = (hits.get(ip) ?? []).filter((t) => now - t < 10 * 60_000);
   recent.push(now);
   hits.set(ip, recent);
@@ -17,7 +19,8 @@ function rateLimited(ip: string) {
 const str = (v: unknown, max: number) => (typeof v === "string" ? v.trim().slice(0, max) : "");
 
 export async function POST(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "local";
+  // x-real-ip est fixé par Vercel (non falsifiable par le client) ; X-Forwarded-For en dernier recours, adresse ajoutée par le proxy (la plus à droite).
+  const ip = req.headers.get("x-real-ip") ?? req.headers.get("x-forwarded-for")?.split(",").pop()?.trim() ?? "local";
   if (rateLimited(ip)) return NextResponse.json({ error: "Trop de demandes. Réessayez dans quelques minutes." }, { status: 429 });
 
   const body = (await req.json().catch(() => null)) as Record<string, unknown> | null;
