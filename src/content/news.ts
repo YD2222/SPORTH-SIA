@@ -23,7 +23,7 @@ export const news: NewsItem[] = [
     kind: "Nouveauté",
     title: "SPORTHESIA BODY 360",
     text: "Commencez par le bilan ANOVATOR Découverte : une première évaluation et un échange avec un professionnel pour trouver ensemble votre parcours.",
-    conditions: "Bilan ANOVATOR Découverte 35 € (au lieu de 50 €) · Bilan initial BODY 360 149 €.",
+    conditions: "Bilan ANOVATOR Découverte 35 € (au lieu de 50 €) · Bilan initial BODY 360 160 € (option AeroCore™ + 40 €).",
     link: { href: "/body-360", label: "Découvrir BODY 360" },
   },
   {

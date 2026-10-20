@@ -48,6 +48,8 @@ export type Service = {
   durationLabel: string;
   price: number | null;
   priceLabel: string;
+  /** Options facultatives ajoutées au prix de base. */
+  options?: { name: string; price: number; note?: string }[];
   /** Prix habituel barré pendant une promotion (prix de référence). */
   regularPrice?: number;
   priceStatus: PriceStatus;
@@ -758,8 +760,9 @@ export const services: Service[] = [
       "Une consultation en présentiel d'environ 50 minutes : mesures ANOVATOR, entretien, analyse, explication de votre dossier et recommandations individualisées.",
     durationMin: 50,
     durationLabel: "50 min environ",
-    price: 149,
-    priceLabel: "149 €",
+    price: 160,
+    priceLabel: "160 €",
+    options: [{ name: "Option AeroCore™", price: 40, note: "Facultative, à ajouter au bilan BODY 360." }],
     priceStatus: "confirmé",
     bookable: false, // organisé via CharlySecure (dossier du 20/10)
     capacity: 1,
@@ -799,11 +802,11 @@ export const body360 = {
   imageCaption: "Illustration d'une évaluation corporelle accompagnée",
   seoTitle: "Bilan corporel ANOVATOR et BODY 360 à Paris 7e",
   seoDescription:
-    "Bilan ANOVATOR Découverte (35 €) : composition corporelle, repères posturaux et échange avec un professionnel. Bilan initial SPORTHESIA BODY 360 (149 €) : 50 min d'entretien, d'analyse et de recommandations. Paris 7e.",
+    "Bilan ANOVATOR Découverte (35 €) : composition corporelle, repères posturaux et échange avec un professionnel. Bilan initial SPORTHESIA BODY 360 (160 €, option AeroCore™ facultative + 40 €) : 50 min d'entretien, d'analyse et de recommandations. Paris 7e.",
   faq: [
     {
       q: "Quelle différence entre les deux bilans ?",
-      a: "Le bilan ANOVATOR Découverte (35 €) est une première évaluation suivie d'un échange avec un professionnel ; il se réserve et se règle en ligne. Le bilan BODY 360 (149 €) est une consultation d'expertise d'environ 50 minutes, avec analyse et recommandations individualisées ; il s'organise avec l'équipe SPORTHESIA.",
+      a: "Le bilan ANOVATOR Découverte (35 €) est une première évaluation suivie d'un échange avec un professionnel ; il se réserve et se règle en ligne. Le bilan BODY 360 (160 €, avec une option AeroCore™ facultative à 40 €) est une consultation d'expertise d'environ 50 minutes, avec analyse et recommandations individualisées ; il s'organise avec l'équipe SPORTHESIA.",
     },
     {
       q: "Est-ce la même chose que le bilan postural AeroCore™ ?",

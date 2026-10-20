@@ -95,7 +95,8 @@ export default function Body360Page() {
             <ul className="mt-4 space-y-2.5 leading-relaxed text-nuit/75">
               <li>
                 Le <Link href="/posture" className="underline decoration-or underline-offset-4">bilan postural AeroCore™</Link> (200 €) est une prestation
-                distincte, centrée sur la posture.
+                distincte, centrée sur la posture. Avec le bilan BODY 360, l&apos;option AeroCore™ est proposée à 40 € et reste
+                facultative.
               </li>
               <li>En dehors de la cryolipolyse, de BODY 360 et des parcours silhouette, aucun bilan ANOVATOR n&apos;est demandé avant les autres prestations.</li>
               <li>Les suivis BODY 360 seront proposés après validation de leurs modalités et de leurs tarifs.</li>

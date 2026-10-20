@@ -71,6 +71,12 @@ export function ServiceCard({ s, index }: { s: Service; index: number }) {
             {s.priceLabel}
             {s.priceStatus === "prévisionnel" && <span className="sr-only"> (tarif prévisionnel)</span>}
           </p>
+          {s.options?.map((o) => (
+            <p key={o.name} className="-mt-2 text-sm text-nuit/70">
+              {o.name} <span className="font-semibold text-nuit">+ {o.price} €</span>
+              {o.note && <span className="block text-xs text-ardoise">{o.note}</span>}
+            </p>
+          ))}
           {s.bookable ? (
             <Link href={`/reserver?prestation=${s.id}`} className={`${btn.primary} w-full text-center lg:w-auto lg:max-w-full`}>
               {s.ctaLabel ?? (s.kind === "forfait" ? "Réserver ce forfait" : "Réserver cette prestation")}

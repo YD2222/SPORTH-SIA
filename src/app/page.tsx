@@ -92,6 +92,11 @@ export default function Home() {
                       </span>
                       <span className="mt-3 font-semibold">{s.name}</span>
                       <span className="mt-1 text-sm text-ivoire/60">{s.durationLabel}</span>
+                      {s.options?.map((o) => (
+                        <span key={o.name} className="mt-1 text-sm text-ivoire/60">
+                          {o.name} facultative : + {o.price} €
+                        </span>
+                      ))}
                       <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.72rem] font-semibold tracking-[0.16em] text-or-clair uppercase">
                         {cta} <ArrowUpRight className="size-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </span>
