@@ -101,8 +101,16 @@ export default async function UniversePage({ params }: Props) {
             ))}
           </div>
           <div className="lg:col-span-5 lg:col-start-8">
-            <ImageReveal className="relative aspect-[4/3] overflow-hidden rounded-[28px]">
-              <Image src={u.detailImage} alt={u.detailImageAlt} fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover" />
+            <ImageReveal
+              className={`relative overflow-hidden rounded-[28px] ${u.detailImagePortrait ? "mx-auto aspect-[700/1024] max-w-[460px] bg-white" : "aspect-[4/3]"}`}
+            >
+              <Image
+                src={u.detailImage}
+                alt={u.detailImageAlt}
+                fill
+                sizes="(min-width:1024px) 40vw, 100vw"
+                className={u.detailImagePortrait ? "object-contain" : "object-cover"}
+              />
             </ImageReveal>
           </div>
         </div>

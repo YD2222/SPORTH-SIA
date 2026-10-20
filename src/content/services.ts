@@ -89,6 +89,8 @@ export type Universe = {
   imageAlt: string;
   detailImage: string;
   detailImageAlt: string;
+  /** Visuel vertical à afficher en entier (infographie, texte). */
+  detailImagePortrait?: boolean;
   keywords: string;
   seoTitle: string;
   seoDescription: string;
@@ -116,10 +118,12 @@ export const universes: Universe[] = [
     conclusion: "Comprendre sa posture, c'est déjà porter un nouveau regard sur son corps.",
     cta: "Réserver mon bilan postural",
     homeCta: "Découvrir la posture",
-    image: "/images/posture3.jpg",
-    imageAlt: "Personne debout sur une plateforme d'analyse posturale, dans une pièce lumineuse",
-    detailImage: "/images/posture.jpg",
-    detailImageAlt: "Bilan postural en cours avec un praticien et un écran d'analyse",
+    image: "/images/posture-bilan.webp",
+    imageAlt: "Praticien observant la posture d'une femme debout sur une plateforme d'analyse, avec repères d'alignement",
+    detailImage: "/images/posture-evolution.jpg",
+    detailImageAlt:
+      "Quatre déséquilibres posturaux illustrés : tête en avant, dos voûté, bassin déséquilibré, genoux en dedans",
+    detailImagePortrait: true,
     keywords: "bilan postural Paris 7e, analyse posturale, AeroCore, posture",
     seoTitle: "Bilan postural AeroCore™ à Paris 7e",
     seoDescription:
