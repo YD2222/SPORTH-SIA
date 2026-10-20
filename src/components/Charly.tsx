@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { X, ArrowUpRight, MessageCircle } from "lucide-react";
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 import { site } from "@/content/site";
-import { body360, universes, servicesOf } from "@/content/services";
+import { universes, servicesOf, type UniverseSlug } from "@/content/services";
 import { Emblem } from "./Logo";
 
 type Ctx = { open: () => void; close: () => void };
@@ -74,11 +74,21 @@ export function CharlyProvider({ children }: { children: ReactNode }) {
   );
 }
 
+/** Phrases propres à Charly (prioritaires sur celles des cartes d'accueil). */
+const CHARLY_LINES: Partial<Record<UniverseSlug, string>> = {
+  silhouette: "Prendre soin de son corps et de son visage.",
+};
+
+/** Prestations présentées par Charly sans fiche réservable (sans prix publié). */
+const CHARLY_EXTRAS: Partial<Record<string, { name: string; detail: string; href: string }[]>> = {
+  posture: [{ name: "Clinique OPS", detail: "Expertise complémentaire, sur indication · tarif sur évaluation", href: "/posture#prestations" }],
+  recuperation: [{ name: "Kinésiologie de bien-être", detail: "Démarche non médicale · tarifs communiqués prochainement", href: "/#kine-title" }],
+};
+
 function Orientation({ onNavigate }: { onNavigate: () => void }) {
   const [choice, setChoice] = useState<string | null>(null);
   const options = [
-    ...universes.map((x) => ({ slug: x.slug as string, name: x.name, line: x.cardLine })),
-    { slug: body360.slug as string, name: "BODY 360", line: "Faire le point avec des mesures et un bilan corporel." },
+    ...universes.map((x) => ({ slug: x.slug as string, name: x.name, line: CHARLY_LINES[x.slug] ?? x.cardLine })),
   ];
   const u = options.find((x) => x.slug === choice);
   return (
@@ -92,7 +102,7 @@ function Orientation({ onNavigate }: { onNavigate: () => void }) {
             key={x.slug}
             onClick={() => setChoice(x.slug)}
             aria-pressed={choice === x.slug}
-            className={`rounded-2xl border px-4 py-3 text-left text-sm transition-colors last:col-span-2 ${
+            className={`rounded-2xl border px-4 py-3 text-left text-sm transition-colors ${
               choice === x.slug ? "border-nuit bg-nuit text-ivoire" : "border-nuit/15 hover:border-nuit/40"
             }`}
           >
@@ -110,12 +120,12 @@ function Orientation({ onNavigate }: { onNavigate: () => void }) {
               Voici les prestations correspondantes, avec leur durée et leur prix.
             </div>
             <ul className="mt-4 space-y-2">
-              {servicesOf(u.slug as Parameters<typeof servicesOf>[0])
+              {[...servicesOf(u.slug as UniverseSlug), ...(u.slug === "posture" ? servicesOf("body-360") : [])]
                 .filter((s) => s.kind !== "forfait")
                 .map((s) => (
                   <li key={s.id}>
                     <Link
-                      href={s.bookable ? `/reserver?prestation=${s.id}` : `/${u.slug}#${s.id}`}
+                      href={s.bookable ? `/reserver?prestation=${s.id}` : `/${s.universe}#${s.id}`}
                       onClick={onNavigate}
                       className="group flex items-center justify-between gap-3 rounded-2xl border border-nuit/10 bg-white/60 px-4 py-3 transition-colors hover:border-or"
                     >
@@ -130,6 +140,21 @@ function Orientation({ onNavigate }: { onNavigate: () => void }) {
                     </Link>
                   </li>
                 ))}
+              {CHARLY_EXTRAS[u.slug]?.map((x) => (
+                <li key={x.name}>
+                  <Link
+                    href={x.href}
+                    onClick={onNavigate}
+                    className="group flex items-center justify-between gap-3 rounded-2xl border border-nuit/10 bg-white/60 px-4 py-3 transition-colors hover:border-or"
+                  >
+                    <span>
+                      <span className="block text-sm font-semibold">{x.name}</span>
+                      <span className="text-xs text-ardoise">{x.detail}</span>
+                    </span>
+                    <ArrowUpRight className="size-4 shrink-0 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </motion.div>
         )}
