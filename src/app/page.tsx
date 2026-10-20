@@ -115,13 +115,13 @@ export default function Home() {
       <section aria-labelledby="accomp-title" className="bg-brume/70 py-24 lg:py-36">
         <div className={`${container} grid items-center gap-14 lg:grid-cols-12`}>
           <div className="relative lg:col-span-6">
-            <ImageReveal className="relative mx-auto aspect-[4/5] max-w-[520px] overflow-hidden rounded-t-full rounded-b-[28px]">
+            <ImageReveal className="relative mx-auto aspect-[2/3] max-w-[440px] overflow-hidden rounded-t-full rounded-b-[28px]">
               <Image
-                src="/images/expertise-posture.jpg"
-                alt="Praticien guidant la posture d'une personne debout sur une plateforme d'analyse"
+                src="/images/expertise-posture.webp"
+                alt="Praticien en blouse guidant l&apos;alignement postural d&apos;une jeune femme debout"
                 fill
                 sizes="(min-width:1024px) 40vw, 100vw"
-                className="object-cover object-[50%_40%]"
+                className="object-cover object-center"
               />
             </ImageReveal>
           </div>
