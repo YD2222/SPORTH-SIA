@@ -1,22 +1,24 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ProsePage, Todo } from "@/components/ProsePage";
+import { ExpertiseShowcase } from "@/components/ExpertiseShowcase";
+import { expertiseIntro } from "@/content/expertise";
 import { signatures } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Notre expertise",
   description:
-    "SPORTHESIA®, marque et concept dédiés à la posture, au mouvement, à la récupération et à la silhouette. Site pilote exploité par PhysioGym, Paris 7e.",
+    "Bilan SPORTHESIA BODY 360, bilan Clinique OPS, bilan émotionnel en kinésiologie, bilan mobilité, équilibre et force : l'expertise SPORTHESIA à Paris 7e, site pilote exploité par PhysioGym.",
   alternates: { canonical: "/expertise" },
 };
 
 // TODO : liste confirmée par le client (nom, qualification, statut, prestations vendues).
 const team = [
-  { role: "Praticien(ne) PhysioGym", scope: "Bilan postural AeroCore™, bilan ANOVATOR Découverte, BODY 360, luminothérapie, Lapex, MTT" },
-  { role: "Enseignant(e) en activité physique adaptée — indépendant(e)", scope: "Cours en petit groupe" },
-  { role: "Praticien(ne) bien-être — indépendant(e)", scope: "Massage de bien-être" },
-  { role: "Praticien(ne) esthétique — indépendant(e)", scope: "Cryolipolyse" },
-  { role: "Kinésiologue bien-être — indépendant(e)", scope: "Prestations communiquées prochainement" },
+  { role: "Posturologie — PhysioGym", scope: "Bilan postural AeroCore™, bilan ANOVATOR Découverte, BODY 360, Clinique OPS" },
+  { role: "Activité physique adaptée — indépendant(e)", scope: "Bilan mobilité, équilibre et force ; cours de gym en petit groupe" },
+  { role: "Technologies de récupération physique", scope: "Luminothérapie, Lapex, MTT" },
+  { role: "Bien-être — indépendant(e)", scope: "Massage de bien-être" },
+  { role: "Esthétique — indépendant(e)", scope: "Cryolipolyse" },
+  { role: "Kinésiologie — indépendant(e)", scope: "Bilan émotionnel en kinésiologie" },
 ];
 
 // Équipements réellement disponibles au lancement — aucun équipement futur.
@@ -24,10 +26,18 @@ const equipment = ["AeroCore™ (bilan postural)", "ANOVATOR (mesures corporelle
 
 export default function Page() {
   return (
-    <ProsePage eyebrow="Notre expertise" title="Une approche globale du corps" intro={signatures.histoire}>
-      <div className="relative aspect-[16/9] overflow-hidden rounded-[28px]">
-        <Image src="/images/studio.jpg" alt="Studio lumineux aux grandes baies vitrées" fill sizes="900px" className="object-cover" />
-      </div>
+    <ProsePage eyebrow="Notre expertise" title={expertiseIntro.title} intro={signatures.histoire}>
+      <section>
+        {expertiseIntro.paragraphs.map((p) => (
+          <p key={p}>{p}</p>
+        ))}
+      </section>
+      <section aria-labelledby="bilans-title">
+        <h2 id="bilans-title">Nos bilans</h2>
+        <div className="mt-8 [&_a]:no-underline">
+          <ExpertiseShowcase detailed />
+        </div>
+      </section>
       <section>
         <h2>Une marque, un concept, un site pilote</h2>
         <p>
@@ -36,13 +46,6 @@ export default function Page() {
         </p>
         <p>
           Les prestations SPORTHESIA sont distinctes des soins conventionnés de PhysioGym : on y vient librement, sans prescription, pour prendre soin de son corps.
-        </p>
-      </section>
-      <section>
-        <h2>Notre démarche</h2>
-        <p>
-          Notre posture, nos mouvements, notre silhouette et notre bien-être sont liés. SPORTHESIA propose une démarche individualisée associant évaluation,
-          mouvement, récupération et silhouette, avec un accompagnement adapté à chacun.
         </p>
       </section>
       <section>

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Hero } from "@/components/home/Hero";
@@ -7,20 +6,16 @@ import { Philosophy } from "@/components/home/Philosophy";
 import { NewsCards } from "@/components/NewsCards";
 import { FinalCta } from "@/components/FinalCta";
 import { CharlyButton } from "@/components/Charly";
-import { ImageReveal, Reveal, RevealWords } from "@/components/motion";
+import { Reveal, RevealWords } from "@/components/motion";
 import { btn, container } from "@/components/ui";
 import { activeNews } from "@/content/news";
 import { getService } from "@/content/services";
+import { expertiseIntro } from "@/content/expertise";
+import { ExpertiseShowcase } from "@/components/ExpertiseShowcase";
 import { site, signatures } from "@/content/site";
 
 export const revalidate = 3600;
 
-const pillars = [
-  { title: "Une expertise SPORTHESIA by PhysioGym", text: "Le savoir-faire PhysioGym au service du concept SPORTHESIA, à Paris 7e, avec des intervenants identifiés selon leur statut." },
-  { title: "Un accompagnement alimentaire", text: "Des conseils d'alimentation adaptés à vos objectifs, pour compléter le mouvement et la récupération, à votre rythme." },
-  { title: "Cours de gym à quatre maximum", text: "Nos cours de gymnastique en petit groupe accueillent quatre personnes au plus : chacun est suivi et peut avancer à son rythme." },
-  { title: "Un point de départ clair", text: "Le bilan ANOVATOR Découverte pour faire le point ; la plupart des prestations restent accessibles sans bilan préalable." },
-];
 
 export default function Home() {
   const news = activeNews().slice(0, 3);
@@ -111,60 +106,29 @@ export default function Home() {
 
       <Philosophy />
 
-      {/* L'accompagnement humain */}
-      <section aria-labelledby="accomp-title" className="bg-brume/70 py-24 lg:py-36">
-        <div className={`${container} grid items-center gap-14 lg:grid-cols-12`}>
-          <div className="relative lg:col-span-6">
-            <ImageReveal className="relative mx-auto aspect-[2/3] max-w-[440px] overflow-hidden rounded-t-full rounded-b-[28px]">
-              <Image
-                src="/images/expertise-posture.webp"
-                alt="Praticien en blouse guidant l&apos;alignement postural d&apos;une jeune femme debout"
-                fill
-                sizes="(min-width:1024px) 40vw, 100vw"
-                className="object-cover object-center"
-              />
-            </ImageReveal>
-          </div>
-          <div className="lg:col-span-5 lg:col-start-8">
-            <p className="eyebrow text-or">Notre expertise</p>
-            <RevealWords
-              as="h2"
-              text="Un accompagnement qui s'adapte à vous"
-              emphasis={["vous"]}
-              className="font-display mt-5 text-[clamp(2.2rem,4vw,3.6rem)] leading-[1.04] font-light"
-            />
-            <Reveal delay={0.15}>
-              <div className="mt-8 space-y-5 text-lg leading-relaxed text-nuit/75">
-                <p>Chez SPORTHESIA, chaque personne possède son histoire, ses attentes et son rythme.</p>
-                <p>
-                  Notre approche associe différentes compétences pour vous proposer un accompagnement personnalisé, qu&apos;il s&apos;agisse de posture,
-                  d&apos;activité physique, de récupération ou de bien-être.
-                </p>
-                <p>
-                  Des professionnels indépendants pourront intervenir dans leurs domaines de compétence, notamment en activité physique adaptée et en
-                  kinésiologie de bien-être.
-                </p>
-                <p className="text-base text-nuit/60">
-                  SPORTHESIA® est une marque et un concept. Son site pilote parisien est exploité par PhysioGym, Paris 7e ; chaque prestation est vendue par le
-                  professionnel identifié sur sa fiche.
-                </p>
-              </div>
-              <Link href="/expertise" className={`${btn.link} mt-8`}>
-                Notre expertise <ArrowUpRight className="size-4 text-or" />
-              </Link>
-            </Reveal>
-            <dl className="mt-12 grid gap-x-8 gap-y-7 sm:grid-cols-2">
-              {pillars.map((p, i) => (
-                <Reveal key={p.title} delay={0.1 + i * 0.07}>
-                  <dt className="flex items-center gap-3 font-semibold">
-                    <span className="size-1.5 rounded-full bg-or" />
-                    {p.title}
-                  </dt>
-                  <dd className="mt-2 pl-[18px] text-[0.95rem] leading-relaxed text-nuit/65">{p.text}</dd>
-                </Reveal>
+      {/* Notre expertise — texte, grande photo, bilans */}
+      <section aria-labelledby="expertise-title" className="bg-brume/70 py-24 lg:py-32">
+        <div className={container}>
+          <div className="grid gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-5">
+              <p className="eyebrow text-or">Notre expertise</p>
+              <h2 id="expertise-title" className="font-display mt-5 text-[clamp(2.2rem,4vw,3.4rem)] leading-[1.06] font-light">
+                {expertiseIntro.title}
+              </h2>
+            </div>
+            <Reveal className="space-y-4 text-lg leading-relaxed text-nuit/75 lg:col-span-6 lg:col-start-7">
+              {expertiseIntro.paragraphs.map((p) => (
+                <p key={p}>{p}</p>
               ))}
-            </dl>
+              <p className="text-sm text-nuit/55">{expertiseIntro.legal}</p>
+            </Reveal>
           </div>
+          <div className="mt-14">
+            <ExpertiseShowcase />
+          </div>
+          <Link href="/expertise" className={`${btn.link} mt-12`}>
+            Découvrir notre expertise <ArrowUpRight className="size-4 text-or" />
+          </Link>
         </div>
       </section>
 
