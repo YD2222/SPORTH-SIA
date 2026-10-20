@@ -17,7 +17,7 @@ export const revalidate = 3600;
 
 const pillars = [
   { title: "Une expertise SPORTHESIA by PhysioGym", text: "Le savoir-faire PhysioGym au service du concept SPORTHESIA, à Paris 7e, avec des intervenants identifiés selon leur statut." },
-  { title: "Un accompagnement personnalisé", text: "Chaque personne a son histoire, ses attentes et son rythme. Nous partons de vous." },
+  { title: "Un accompagnement alimentaire", text: "Des conseils d'alimentation adaptés à vos objectifs, pour compléter le mouvement et la récupération, à votre rythme." },
   { title: "Cours de gym à quatre maximum", text: "Nos cours de gymnastique en petit groupe accueillent quatre personnes au plus : chacun est suivi et peut avancer à son rythme." },
   { title: "Un point de départ clair", text: "Le bilan ANOVATOR Découverte pour faire le point ; la plupart des prestations restent accessibles sans bilan préalable." },
 ];
