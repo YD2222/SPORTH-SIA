@@ -115,14 +115,15 @@ export default function Home() {
       <section aria-labelledby="accomp-title" className="bg-brume/70 py-24 lg:py-36">
         <div className={`${container} grid items-center gap-14 lg:grid-cols-12`}>
           <div className="relative lg:col-span-6">
-            <ImageReveal className="relative aspect-[5/6] overflow-hidden rounded-[28px] lg:aspect-[4/5]">
-              <Image src="/images/accompagnement.jpg" alt="Praticien accompagnant une personne lors d'une séance individuelle" fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
+            <ImageReveal className="relative mx-auto aspect-[4/5] max-w-[520px] overflow-hidden rounded-t-full rounded-b-[28px]">
+              <Image
+                src="/images/expertise-posture.jpg"
+                alt="Jeune homme assis le dos droit sur un tapis, détendu et attentif à sa posture"
+                fill
+                sizes="(min-width:1024px) 40vw, 100vw"
+                className="object-cover object-[66%_50%]"
+              />
             </ImageReveal>
-            <Reveal delay={0.4} className="absolute -right-2 -bottom-8 w-[46%] max-w-[260px] overflow-hidden rounded-t-full rounded-b-[20px] border-[6px] border-brume shadow-xl sm:-right-6">
-              <div className="relative aspect-[3/4]">
-                <Image src="/images/senior.jpg" alt="Femme souriante faisant un exercice de mobilité des épaules" fill sizes="260px" className="object-cover" />
-              </div>
-            </Reveal>
           </div>
           <div className="lg:col-span-5 lg:col-start-8">
             <p className="eyebrow text-or">Notre expertise</p>
