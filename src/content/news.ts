@@ -22,8 +22,8 @@ export const news: NewsItem[] = [
     id: "body-360",
     kind: "Nouveauté",
     title: "SPORTHESIA BODY 360",
-    text: "Deux évaluations corporelles pour avancer avec des repères concrets : le bilan ANOVATOR et le bilan initial BODY 360.",
-    conditions: "Bilan ANOVATOR 49 € · Bilan initial BODY 360 149 €.",
+    text: "Commencez par le bilan ANOVATOR Découverte : une première évaluation et un échange avec un professionnel pour trouver ensemble votre parcours.",
+    conditions: "Bilan ANOVATOR Découverte 35 € (au lieu de 50 €) · Bilan initial BODY 360 149 €.",
     link: { href: "/body-360", label: "Découvrir BODY 360" },
   },
   {

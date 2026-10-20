@@ -5,6 +5,7 @@ import { ArrowDown } from "lucide-react";
 import { body360, servicesOf } from "@/content/services";
 import { site } from "@/content/site";
 import { ServiceCard } from "@/components/ServiceCard";
+import { AnovatorTable } from "@/components/AnovatorTable";
 import { PhotoSlot } from "@/components/Soon";
 import { Faq } from "@/components/Faq";
 import { FinalCta } from "@/components/FinalCta";
@@ -96,10 +97,20 @@ export default function Body360Page() {
                 Le <Link href="/posture" className="underline decoration-or underline-offset-4">bilan postural AeroCore™</Link> (200 €) est une prestation
                 distincte, centrée sur la posture.
               </li>
-              <li>Aucun bilan préalable n&apos;est obligatoire pour réserver les autres prestations SPORTHESIA.</li>
+              <li>En dehors de la cryolipolyse, de BODY 360 et des parcours silhouette, aucun bilan ANOVATOR n&apos;est demandé avant les autres prestations.</li>
               <li>Les suivis BODY 360 seront proposés après validation de leurs modalités et de leurs tarifs.</li>
             </ul>
           </Reveal>
+        </div>
+      </section>
+
+      <section id="prestations-anovator" aria-labelledby="anovator-title" className="scroll-mt-20 pb-24">
+        <div className={container}>
+          <p className="eyebrow text-or">Bilan ANOVATOR</p>
+          <h2 id="anovator-title" className="font-display mt-4 mb-10 max-w-3xl text-[clamp(2.2rem,4vw,3.4rem)] leading-tight font-light">
+            Pour quelles prestations&nbsp;?
+          </h2>
+          <AnovatorTable />
         </div>
       </section>
 

@@ -19,7 +19,7 @@ const pillars = [
   { title: "Une expertise PhysioGym", text: "Le site pilote est exploité par PhysioGym, à Paris 7e, avec des intervenants identifiés selon leur statut." },
   { title: "Un accompagnement personnalisé", text: "Chaque personne a son histoire, ses attentes et son rythme. Nous partons de vous." },
   { title: "Quatre personnes maximum", text: "En petit groupe comme en séance individuelle, le temps de l'attention est préservé." },
-  { title: "Sans bilan obligatoire", text: "Vous pouvez réserver directement la prestation qui vous attire, en quelques clics." },
+  { title: "Un point de départ clair", text: "Le bilan ANOVATOR Découverte pour faire le point ; la plupart des prestations restent accessibles sans bilan préalable." },
 ];
 
 export default function Home() {
@@ -71,19 +71,25 @@ export default function Home() {
                 Mieux comprendre <span className="text-or-clair italic">son corps</span>
               </h2>
               <p className="mt-5 max-w-lg text-lg leading-relaxed text-ivoire/75">
-                Mieux comprendre son corps pour avancer avec des repères concrets. Découvrez nos évaluations corporelles, du bilan de mesures ANOVATOR à
+                Mieux comprendre son corps pour avancer avec des repères concrets. Découvrez nos évaluations corporelles, du bilan ANOVATOR Découverte à
                 l&apos;accompagnement personnalisé SPORTHESIA BODY 360.
               </p>
+              <Link href="/body-360#prestations-anovator" className="mt-6 inline-flex items-center gap-2 border-b border-or-clair pb-1 text-sm text-ivoire/85">
+                Le bilan ANOVATOR est demandé avant une cryolipolyse : pour quelles prestations&nbsp;? <ArrowUpRight className="size-4" />
+              </Link>
             </div>
             <div className="grid gap-3 sm:grid-cols-2 lg:col-span-6">
               {[
-                { s: getService("bilan-anovator"), href: "/body-360#bilan-anovator", cta: "Découvrir le bilan ANOVATOR" },
+                { s: getService("bilan-anovator"), href: "/reserver?prestation=bilan-anovator", cta: "Réserver mon bilan découverte" },
                 { s: getService("bilan-body-360"), href: "/body-360#bilan-body-360", cta: "Découvrir BODY 360" },
               ].map(({ s, href, cta }, i) =>
                 s ? (
                   <Reveal key={s.id} delay={i * 0.1}>
                     <Link href={href} className="group flex h-full flex-col rounded-[24px] border border-ivoire/15 bg-ivoire/5 p-6 transition-colors duration-500 hover:border-or-clair hover:bg-ivoire/10">
-                      <span className="font-display text-4xl">{s.priceLabel}</span>
+                      <span className="font-display text-4xl">
+                        {s.regularPrice && <s className="mr-2 text-xl text-ivoire/40">{s.regularPrice} €</s>}
+                        {s.priceLabel}
+                      </span>
                       <span className="mt-3 font-semibold">{s.name}</span>
                       <span className="mt-1 text-sm text-ivoire/60">{s.durationLabel}</span>
                       <span className="mt-auto inline-flex items-center gap-2 pt-6 text-[0.72rem] font-semibold tracking-[0.16em] text-or-clair uppercase">

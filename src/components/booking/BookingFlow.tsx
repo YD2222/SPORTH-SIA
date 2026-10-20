@@ -164,7 +164,7 @@ function ChooseService({ selected, onChoose }: { selected?: string; onChoose: (s
                     <span className={`mt-1 text-sm ${selected === s.id ? "text-ivoire/70" : "text-ardoise"}`}>
                       {s.durationLabel}
                       {s.kind === "cours" && ` · ${s.capacity} participants max.`}
-                      {!s.bookable && " · bientôt réservable"}
+                      {!s.bookable && (s.anovator?.rule === "obligatoire" || s.anovator?.rule === "inclus" ? " · après bilan ANOVATOR" : " · bientôt réservable")}
                     </span>
                   </button>
                 ))}

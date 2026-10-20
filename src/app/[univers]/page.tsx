@@ -119,7 +119,7 @@ export default async function UniversePage({ params }: Props) {
               </h2>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-ardoise">
-              Prestations non conventionnées, réservables directement, sans bilan préalable obligatoire. Prix publics TTC.
+              Prestations non conventionnées. Un bilan ANOVATOR préalable est demandé uniquement lorsque c&apos;est indiqué. Prix publics TTC.
             </p>
           </div>
           <div>

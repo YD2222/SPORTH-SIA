@@ -32,6 +32,12 @@ export type Soon = {
 
 export type InfoBlock = { title: string; items: string[] };
 
+/**
+ * Bilan ANOVATOR préalable — règle de fonctionnement SPORTHESIA (tableau client du 20/10),
+ * et non une obligation médicale universelle.
+ */
+export type AnovatorRule = { rule: "obligatoire" | "inclus" | "non-requis"; note: string };
+
 export type Service = {
   id: string;
   universe: UniverseSlug | "body-360";
@@ -42,6 +48,8 @@ export type Service = {
   durationLabel: string;
   price: number | null;
   priceLabel: string;
+  /** Prix habituel barré pendant une promotion (prix de référence). */
+  regularPrice?: number;
   priceStatus: PriceStatus;
   bookable: boolean;
   /** Nombre de places par créneau (cours collectifs). */
@@ -55,6 +63,8 @@ export type Service = {
   steps: string[];
   preparation?: string[];
   precautions: string[];
+  /** Faut-il un bilan ANOVATOR avant cette prestation ? */
+  anovator?: AnovatorRule;
   /** Libellé du bouton de réservation, si différent du libellé par défaut. */
   ctaLabel?: string;
   /** Information de sécurité propre au dispositif (silhouette, appareils). */
@@ -126,7 +136,7 @@ export const universes: Universe[] = [
       },
       {
         q: "Quelle différence avec le bilan BODY 360 ?",
-        a: "Le bilan postural AeroCore™ (200 €) est une prestation distincte, centrée sur la posture et l'équilibre. Les bilans ANOVATOR et BODY 360 portent sur les mesures et la composition corporelle. Aucun bilan n'est obligatoire pour réserver les autres prestations.",
+        a: "Le bilan postural AeroCore™ (200 €) est une prestation distincte, centrée sur la posture et l'équilibre. Les bilans ANOVATOR et BODY 360 portent sur la composition corporelle. Le bilan postural ne nécessite pas de bilan ANOVATOR préalable.",
       },
       {
         q: "Le bilan corrige-t-il ma posture ?",
@@ -230,10 +240,10 @@ export const universes: Universe[] = [
     imageAlt: "Mains d'un praticien pendant un massage de bien-être du dos",
     detailImage: "/images/salle.jpg",
     detailImageAlt: "Salle de massage apaisante à la lumière tamisée",
-    keywords: "massage bien-être Paris 7e, luminothérapie Paris, récupération",
+    keywords: "massage bien-être Paris 7e, luminothérapie Paris, Lapex, MTT, récupération",
     seoTitle: "Massage bien-être et luminothérapie à Paris 7e",
     seoDescription:
-      "Massage de bien-être de 55 minutes (110 €) et séances de luminothérapie de 20 minutes (40 €, forfait 5 séances 180 €) à Paris 7e.",
+      "Massage de bien-être de 55 minutes (110 €), luminothérapie (20 min, 40 €), récupération physique Lapex et MTT (30 min, 90 €) à Paris 7e.",
     notes: [
       "Le massage proposé est un massage de bien-être, non thérapeutique : il ne constitue pas un acte de soin.",
       "D'autres prestations utilisant les équipements disponibles pourront être proposées après validation de leurs indications et de leurs tarifs.",
@@ -308,10 +318,10 @@ export const universes: Universe[] = [
     imageAlt: "Portrait de profil d'une femme, épaule nue, lumière douce",
     detailImage: "/images/studio2.jpg",
     detailImageAlt: "Espace lumineux et épuré",
-    keywords: "cryolipolyse Paris 7e, soin silhouette, Lapex, MTT",
+    keywords: "cryolipolyse Paris 7e, soin silhouette, bilan ANOVATOR",
     seoTitle: "Cryolipolyse et soins silhouette à Paris 7e",
     seoDescription:
-      "Cryolipolyse à Paris 7e : un applicateur 190 €, deux applicateurs 250 € (60 min). Séances Lapex et MTT de 30 minutes (90 €). Sans promesse irréaliste.",
+      "Cryolipolyse à Paris 7e : un applicateur 190 €, deux applicateurs 250 € (60 min), après un bilan ANOVATOR Découverte. Sans promesse irréaliste.",
     notes: [
     ],
     soon: [
@@ -350,6 +360,10 @@ export const universes: Universe[] = [
         a: "Non. Les effets varient d'une personne à l'autre. Un échange préalable permet de vérifier l'absence de contre-indication et l'adéquation de la prestation à vos attentes.",
       },
       {
+        q: "Faut-il un bilan avant une cryolipolyse ?",
+        a: "Oui : chez SPORTHESIA, une première séance de cryolipolyse est précédée d'un bilan ANOVATOR Découverte (35 €). C'est une règle de fonctionnement du centre, et non une obligation médicale universelle. La décision repose ensuite sur une évaluation clinique distincte et la vérification des contre-indications.",
+      },
+      {
         q: "Quels effets peuvent survenir après une cryolipolyse ?",
         a: "Des rougeurs, une sensibilité, un engourdissement, des ecchymoses ou un gonflement transitoires sont possibles. Des complications plus rares existent, dont l'hyperplasie adipeuse paradoxale (augmentation du volume de la zone traitée). Elles vous sont présentées avant la séance.",
       },
@@ -368,6 +382,7 @@ export const services: Service[] = [
   // — POSTURE —
   {
     id: "bilan-aerocore",
+    anovator: { rule: "non-requis", note: "Bilan spécialisé indépendant, avec une évaluation propre à la prestation." },
     universe: "posture",
     ctaLabel: "Réserver mon bilan postural",
     name: "Bilan postural AeroCore™",
@@ -403,6 +418,7 @@ export const services: Service[] = [
   },
   {
     id: "suivi-postural",
+    anovator: { rule: "non-requis", note: "Suivi de votre bilan postural AeroCore™." },
     universe: "posture",
     name: "Séance de suivi postural",
     summary: "Un accompagnement individualisé selon vos besoins et vos objectifs, après votre bilan.",
@@ -427,6 +443,7 @@ export const services: Service[] = [
   // — MOUVEMENT —
   {
     id: "cours-collectif",
+    anovator: { rule: "non-requis", note: "Accès direct, avec un entretien de sécurité et une adaptation à vos capacités." },
     universe: "mouvement",
     name: "Cours en petit groupe",
     summary:
@@ -460,6 +477,7 @@ export const services: Service[] = [
   },
   {
     id: "carnet-5",
+    anovator: { rule: "non-requis", note: "Accès direct, avec un entretien de sécurité et une adaptation à vos capacités." },
     universe: "mouvement",
     name: "Carnet de cinq séances",
     summary: "Cinq cours en petit groupe, au même tarif de 35 € la séance. Un format pratique, pas une remise.",
@@ -480,6 +498,7 @@ export const services: Service[] = [
   },
   {
     id: "carnet-10",
+    anovator: { rule: "non-requis", note: "Accès direct, avec un entretien de sécurité et une adaptation à vos capacités." },
     universe: "mouvement",
     name: "Carnet de dix séances",
     summary: "Deux carnets de cinq cours, pour inscrire le mouvement dans la durée.",
@@ -502,6 +521,7 @@ export const services: Service[] = [
   // — RÉCUPÉRATION —
   {
     id: "massage-bien-etre",
+    anovator: { rule: "non-requis", note: "Accès direct, selon les précautions propres à la prestation." },
     universe: "recuperation",
     name: "Massage de bien-être",
     summary: "Une séance dédiée à la détente et au confort corporel. Massage de bien-être : il ne s'agit pas d'un acte thérapeutique.",
@@ -527,6 +547,7 @@ export const services: Service[] = [
   },
   {
     id: "luminotherapie",
+    anovator: { rule: "non-requis", note: "Accès direct, après vérification des contre-indications éventuelles." },
     universe: "recuperation",
     name: "Luminothérapie",
     summary: "Vingt minutes d'exposition à une lumière d'intensité contrôlée, dans une démarche de bien-être.",
@@ -549,6 +570,7 @@ export const services: Service[] = [
   },
   {
     id: "luminotherapie-5",
+    anovator: { rule: "non-requis", note: "Accès direct, après vérification des contre-indications éventuelles." },
     universe: "recuperation",
     name: "Luminothérapie — forfait cinq séances",
     summary: "Cinq séances de 20 minutes, à planifier à votre rythme.",
@@ -571,6 +593,7 @@ export const services: Service[] = [
   // — SILHOUETTE —
   {
     id: "cryolipolyse-1",
+    anovator: { rule: "obligatoire", note: "Avant une première séance : évaluation corporelle et morphologique, discussion de vos objectifs et orientation, puis évaluation spécifique des indications et contre-indications." },
     universe: "silhouette",
     name: "Cryolipolyse — un applicateur",
     summary:
@@ -580,7 +603,7 @@ export const services: Service[] = [
     price: 190,
     priceLabel: "190 €",
     priceStatus: "confirmé",
-    bookable: true,
+    bookable: false, // première séance après bilan ANOVATOR
     capacity: 1,
     kind: "séance",
     seller: "Praticien esthétique indépendant", // TODO
@@ -602,10 +625,12 @@ export const services: Service[] = [
       "Effets transitoires possibles : rougeurs, sensibilité, engourdissement, ecchymoses, gonflement.",
       "Complication rare : hyperplasie adipeuse paradoxale (augmentation du volume de la zone traitée).",
       "Consentement éclairé recueilli avant la séance.",
+      "Le bilan ANOVATOR ne permet pas, à lui seul, de distinguer graisse viscérale et graisse sous-cutanée : la décision de cryolipolyse repose sur une évaluation clinique distincte.",
     ],
   },
   {
     id: "cryolipolyse-2",
+    anovator: { rule: "obligatoire", note: "Avant une première séance : évaluation corporelle et morphologique, discussion de vos objectifs et orientation, puis évaluation spécifique des indications et contre-indications." },
     universe: "silhouette",
     name: "Cryolipolyse — deux applicateurs",
     summary: "Deux zones traitées au cours de la même séance.",
@@ -614,7 +639,7 @@ export const services: Service[] = [
     price: 250,
     priceLabel: "250 €",
     priceStatus: "confirmé",
-    bookable: true,
+    bookable: false, // première séance après bilan ANOVATOR
     capacity: 1,
     kind: "séance",
     seller: "Praticien esthétique indépendant", // TODO
@@ -637,7 +662,8 @@ export const services: Service[] = [
   },
   {
     id: "lapex",
-    universe: "silhouette",
+    anovator: { rule: "non-requis", note: "Évaluation des indications et contre-indications propre à la technique." },
+    universe: "recuperation", // « Récupération physique » (tableau du 20/10)
     name: "Lapex",
     summary: "Une séance de 30 minutes, présentée en détail par le praticien selon l'usage autorisé de l'appareil.",
     durationMin: 30,
@@ -650,7 +676,7 @@ export const services: Service[] = [
     kind: "séance",
     seller: PHYSIOGYM,
     resources: { room: "cabine-silhouette", equipment: "lapex" },
-    forWhom: ["Vous souhaitez compléter votre démarche silhouette."],
+    forWhom: ["Vous souhaitez favoriser votre récupération physique."],
     steps: ["Présentation de l'appareil et vérification des contre-indications.", "Séance de 30 minutes."],
     precautions: ["Aucun résultat n'est garanti.", "Contre-indications communiquées avant la séance."],
     safety: [
@@ -661,7 +687,8 @@ export const services: Service[] = [
   },
   {
     id: "mtt",
-    universe: "silhouette",
+    anovator: { rule: "non-requis", note: "Évaluation des indications et contre-indications propre à la technique." },
+    universe: "recuperation", // « Récupération physique » (tableau du 20/10)
     name: "MTT",
     summary: "Une séance de 30 minutes, présentée en détail par le praticien selon l'usage autorisé de l'appareil.",
     durationMin: 30,
@@ -674,7 +701,7 @@ export const services: Service[] = [
     kind: "séance",
     seller: PHYSIOGYM,
     resources: { room: "cabine-silhouette", equipment: "mtt" },
-    forWhom: ["Vous souhaitez compléter votre démarche silhouette."],
+    forWhom: ["Vous souhaitez favoriser votre récupération physique."],
     steps: ["Présentation de l'appareil et vérification des contre-indications.", "Séance de 30 minutes."],
     precautions: ["Aucun résultat n'est garanti.", "Contre-indications communiquées avant la séance."],
     safety: [
@@ -688,14 +715,15 @@ export const services: Service[] = [
   {
     id: "bilan-anovator",
     universe: "body-360",
-    ctaLabel: "Réserver mon bilan ANOVATOR",
-    name: "Bilan ANOVATOR complet",
+    ctaLabel: "Réserver mon bilan découverte — 35 €",
+    name: "Bilan ANOVATOR Découverte",
     summary:
-      "Mesures morphologiques et de composition corporelle, relevé postural simplifié. Votre bilan vous est remis par QR code et par e-mail.",
+      "Une première évaluation de votre composition corporelle et de vos repères posturaux, suivie d'un échange personnalisé avec un professionnel SPORTHESIA. Ensemble, identifions vos priorités et les solutions qui peuvent vous correspondre.",
     durationMin: 30,
     durationLabel: "30 min environ", // TODO durée à confirmer
-    price: 49,
-    priceLabel: "49 €",
+    price: 35,
+    priceLabel: "35 €",
+    regularPrice: 50, // TODO prix de référence : vérifier la conformité de l'affichage barré
     priceStatus: "confirmé",
     bookable: true,
     capacity: 1,
@@ -703,25 +731,28 @@ export const services: Service[] = [
     seller: PHYSIOGYM,
     resources: { room: "salle-bilan", equipment: "anovator" },
     forWhom: [
-      "Vous souhaitez des repères chiffrés sur votre corps.",
-      "Vous voulez suivre votre évolution dans le temps.",
+      "Vous découvrez SPORTHESIA et souhaitez savoir par où commencer.",
+      "Vous voulez améliorer votre posture, bouger avec confiance, mieux récupérer ou prendre soin de votre silhouette et de votre visage.",
+      "Vous envisagez une cryolipolyse ou un parcours silhouette : ce bilan en est le point de départ.",
     ],
     steps: [
-      "Accueil et explication de la mesure.",
+      "Accueil et échange sur vos attentes et vos objectifs.",
       "Mesures de composition corporelle (masse grasse, masse maigre), périmètres et indices, selon les capacités du dispositif.",
-      "Relevé postural simplifié.",
+      "Repères posturaux simplifiés.",
+      "Échange personnalisé : vos priorités et les accompagnements qui peuvent vous correspondre.",
       "Remise du bilan par QR code et par e-mail.",
     ],
     preparation: ["Tenue légère.", "Évitez un repas copieux ou un effort intense juste avant la mesure."],
     precautions: [
-      "Bilan de mesures : il ne comprend pas de consultation d'expertise approfondie.",
-      "Ce n'est pas un examen médical. Signalez une grossesse ou un dispositif électronique implanté (pacemaker…) avant la mesure.",
+      "Ce bilan ne constitue pas un diagnostic médical exhaustif.",
+      "Aucun programme ni soin n'est imposé à l'issue du rendez-vous.",
+      "Signalez une grossesse ou un dispositif électronique implanté (pacemaker…) avant la mesure.",
     ],
   },
   {
     id: "bilan-body-360",
+    anovator: { rule: "inclus", note: "Mesures ANOVATOR intégrées au bilan expert ; inutile de les refaire si vous avez des résultats récents exploitables." },
     universe: "body-360",
-    ctaLabel: "Réserver mon bilan BODY 360",
     name: "Bilan initial SPORTHESIA BODY 360",
     summary:
       "Une consultation en présentiel d'environ 50 minutes : mesures ANOVATOR, entretien, analyse, explication de votre dossier et recommandations individualisées.",
@@ -730,7 +761,7 @@ export const services: Service[] = [
     price: 149,
     priceLabel: "149 €",
     priceStatus: "confirmé",
-    bookable: true,
+    bookable: false, // organisé via CharlySecure (dossier du 20/10)
     capacity: 1,
     kind: "séance",
     seller: PHYSIOGYM,
@@ -768,15 +799,15 @@ export const body360 = {
   imageCaption: "Illustration d'une évaluation corporelle accompagnée",
   seoTitle: "Bilan corporel ANOVATOR et BODY 360 à Paris 7e",
   seoDescription:
-    "Bilan ANOVATOR complet (49 €) : composition corporelle, périmètres, relevé postural simplifié. Bilan initial SPORTHESIA BODY 360 (149 €) : 50 min d'entretien, d'analyse et de recommandations. Paris 7e.",
+    "Bilan ANOVATOR Découverte (35 €) : composition corporelle, repères posturaux et échange avec un professionnel. Bilan initial SPORTHESIA BODY 360 (149 €) : 50 min d'entretien, d'analyse et de recommandations. Paris 7e.",
   faq: [
     {
       q: "Quelle différence entre les deux bilans ?",
-      a: "Le bilan ANOVATOR (49 €) est un bilan de mesures, remis par QR code et e-mail. Le bilan BODY 360 (149 €) ajoute un entretien, l'analyse de vos résultats et des recommandations individualisées, lors d'une consultation d'environ 50 minutes.",
+      a: "Le bilan ANOVATOR Découverte (35 €) est une première évaluation suivie d'un échange avec un professionnel ; il se réserve et se règle en ligne. Le bilan BODY 360 (149 €) est une consultation d'expertise d'environ 50 minutes, avec analyse et recommandations individualisées ; il s'organise avec l'équipe SPORTHESIA.",
     },
     {
       q: "Est-ce la même chose que le bilan postural AeroCore™ ?",
-      a: "Non. Le bilan postural AeroCore™ (200 €) est une prestation distincte, centrée sur la posture. Aucun bilan préalable n'est obligatoire pour réserver les autres prestations.",
+      a: "Non. Le bilan postural AeroCore™ (200 €) est une prestation distincte, centrée sur la posture, accessible sans bilan ANOVATOR préalable.",
     },
     {
       q: "Y a-t-il un suivi après le bilan BODY 360 ?",
@@ -787,6 +818,28 @@ export const body360 = {
       a: "Oui. Ils vous sont transmis de manière sécurisée et ne sont partagés qu'avec le professionnel qui vous accompagne.",
     },
   ] as Faq[],
+};
+
+/** Tableau de référence « Bilan ANOVATOR : quelles prestations ? » (client, 20/10/2026). */
+export const anovatorTable = {
+  required: [
+    { name: "Cryolipolyse (première séance)", note: "Évaluation corporelle et morphologique, discussion des objectifs et orientation, avant l'évaluation spécifique des indications et contre-indications." },
+    { name: "SPORTHESIA BODY 360", note: "Mesures ANOVATOR intégrées au bilan expert ; inutile de les refaire si des résultats récents sont exploitables." },
+    { name: "Parcours personnalisé de remodelage et suivi de silhouette", note: "Point de départ chiffré pour fixer les objectifs et comparer les évolutions." },
+  ],
+  direct: [
+    { name: "Bilan postural AeroCore™", note: "Bilan spécialisé indépendant ; évaluation propre à la prestation." },
+    { name: "Cours de gymnastique individuels ou collectifs", note: "Accès direct ; entretien de sécurité et adaptation aux capacités." },
+    { name: "Coaching et activité physique adaptée", note: "Accès direct après évaluation par le professionnel ; ANOVATOR facultatif pour le suivi." },
+    { name: "Massages bien-être et kinésiologie", note: "Accès direct, selon les précautions propres à la prestation." },
+    { name: "Luminothérapie, LED et infrarouges", note: "Accès direct après vérification des contre-indications éventuelles." },
+    { name: "Récupération physique : MTT, Lapex", note: "Évaluation des indications et contre-indications propre à chaque technique." },
+    { name: "Soins esthétiques du visage (dont HIFU envisagé)", note: "Évaluation spécifique ; ANOVATOR non requis." },
+    { name: "Ostéopathie", note: "Consultation indépendante, selon les règles professionnelles applicables." },
+  ],
+  rule: "L'obligation d'un bilan ANOVATOR avant une cryolipolyse est une règle de fonctionnement de SPORTHESIA, et non une obligation médicale universelle.",
+  vigilance:
+    "Le bilan ANOVATOR ne permet pas, à lui seul, de confirmer la répartition entre graisse viscérale et graisse sous-cutanée. La décision de cryolipolyse exige une évaluation clinique distincte et la vérification des contre-indications.",
 };
 
 export const getUniverse = (slug: string) => universes.find((u) => u.slug === slug);

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 // TODO : liste confirmée par le client (nom, qualification, statut, prestations vendues).
 const team = [
-  { role: "Praticien(ne) PhysioGym", scope: "Bilan postural AeroCore™, bilans ANOVATOR et BODY 360, luminothérapie, Lapex, MTT" },
+  { role: "Praticien(ne) PhysioGym", scope: "Bilan postural AeroCore™, bilan ANOVATOR Découverte, BODY 360, luminothérapie, Lapex, MTT" },
   { role: "Enseignant(e) en activité physique adaptée — indépendant(e)", scope: "Cours en petit groupe" },
   { role: "Praticien(ne) bien-être — indépendant(e)", scope: "Massage de bien-être" },
   { role: "Praticien(ne) esthétique — indépendant(e)", scope: "Cryolipolyse" },

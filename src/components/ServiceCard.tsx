@@ -12,6 +12,7 @@ export function ServiceCard({ s, index }: { s: Service; index: number }) {
   const [open, setOpen] = useState(false);
   const { open: openCharly } = useCharly();
   const detailsId = `details-${s.id}`;
+  const needsAnovator = s.anovator?.rule === "obligatoire" || s.anovator?.rule === "inclus";
 
   return (
     <motion.article
@@ -31,6 +32,15 @@ export function ServiceCard({ s, index }: { s: Service; index: number }) {
             )}
             {s.priceStatus === "prévisionnel" && (
               <span className="rounded-full border border-or/50 px-3 py-1 text-[0.68rem] font-semibold tracking-[0.14em] text-or uppercase">Tarif prévisionnel</span>
+            )}
+            {s.anovator?.rule === "obligatoire" && (
+              <span className="rounded-full bg-or px-3 py-1 text-[0.68rem] font-semibold tracking-[0.14em] text-encre uppercase">Bilan ANOVATOR préalable</span>
+            )}
+            {s.anovator?.rule === "inclus" && (
+              <span className="rounded-full bg-or/15 px-3 py-1 text-[0.68rem] font-semibold tracking-[0.14em] text-nuit uppercase">Mesures ANOVATOR incluses</span>
+            )}
+            {s.anovator?.rule === "non-requis" && (
+              <span className="rounded-full border border-nuit/15 px-3 py-1 text-[0.68rem] font-semibold tracking-[0.14em] text-ardoise uppercase">Sans bilan préalable</span>
             )}
           </div>
           <h3 className="font-display mt-3 text-[clamp(1.7rem,2.6vw,2.3rem)] leading-tight">{s.name}</h3>
@@ -52,12 +62,23 @@ export function ServiceCard({ s, index }: { s: Service; index: number }) {
 
         <div data-cta className="flex flex-col gap-4 lg:col-span-3 lg:items-end lg:pt-1 lg:text-right">
           <p className="font-display text-[2.1rem] leading-none">
+            {s.regularPrice && (
+              <>
+                <s className="mr-3 text-xl text-nuit/40">{s.regularPrice} €</s>
+                <span className="sr-only">au lieu de {s.regularPrice} €, </span>
+              </>
+            )}
             {s.priceLabel}
             {s.priceStatus === "prévisionnel" && <span className="sr-only"> (tarif prévisionnel)</span>}
           </p>
           {s.bookable ? (
-            <Link href={`/reserver?prestation=${s.id}`} className={`${btn.primary} w-full whitespace-nowrap lg:w-auto`}>
+            <Link href={`/reserver?prestation=${s.id}`} className={`${btn.primary} w-full text-center lg:w-auto lg:max-w-full`}>
               {s.ctaLabel ?? (s.kind === "forfait" ? "Réserver ce forfait" : "Réserver cette prestation")}
+              <ArrowUpRight className="size-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          ) : needsAnovator ? (
+            <Link href="/reserver?prestation=bilan-anovator" className={`${btn.primary} w-full text-center lg:w-auto lg:max-w-full`}>
+              Commencer par le bilan ANOVATOR
               <ArrowUpRight className="size-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           ) : (
@@ -65,7 +86,8 @@ export function ServiceCard({ s, index }: { s: Service; index: number }) {
               Demander à Charly
             </button>
           )}
-          {!s.bookable && <p className="text-xs text-ardoise">Réservation en ligne ouverte dès validation du tarif.</p>}
+          {needsAnovator && !s.bookable && <p className="text-xs text-ardoise lg:max-w-[16rem]">Bilan découverte 35 € · la séance s&apos;organise ensuite avec l&apos;équipe.</p>}
+          {!needsAnovator && !s.bookable && <p className="text-xs text-ardoise">Réservation en ligne ouverte dès validation du tarif.</p>}
         </div>
       </div>
 
@@ -92,7 +114,12 @@ export function ServiceCard({ s, index }: { s: Service; index: number }) {
             className="overflow-hidden"
           >
             <div className="grid gap-8 pt-8 md:grid-cols-3">
-              <Detail title="À qui s'adresse la séance" items={s.forWhom} />
+              <div className="space-y-8">
+                <Detail title="À qui s'adresse la séance" items={s.forWhom} />
+                {s.anovator && (
+                  <Detail title={s.anovator.rule === "non-requis" ? "Accès direct" : "Bilan ANOVATOR préalable"} items={[s.anovator.note]} />
+                )}
+              </div>
               <Detail title="Déroulement" items={s.steps} ordered />
               <div className="space-y-8">
                 {s.preparation && <Detail title="Préparation" items={s.preparation} />}
