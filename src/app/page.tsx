@@ -174,7 +174,7 @@ export default function Home() {
           <div className="lg:col-span-5">
             <p className="eyebrow text-or">Accompagnement complémentaire</p>
             <h2 id="kine-title" className="font-display mt-5 text-[clamp(2rem,3.4vw,3rem)] leading-[1.08] font-light">
-              Prendre en compte toutes les dimensions de son équilibre
+              Votre équilibre émotionnel
             </h2>
           </div>
           <Reveal className="space-y-5 text-lg leading-relaxed text-nuit/75 lg:col-span-6 lg:col-start-7">
