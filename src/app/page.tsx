@@ -118,10 +118,10 @@ export default function Home() {
             <ImageReveal className="relative mx-auto aspect-[4/5] max-w-[520px] overflow-hidden rounded-t-full rounded-b-[28px]">
               <Image
                 src="/images/expertise-posture.jpg"
-                alt="Jeune homme assis le dos droit sur un tapis, détendu et attentif à sa posture"
+                alt="Praticien guidant la posture d'une personne debout sur une plateforme d'analyse"
                 fill
                 sizes="(min-width:1024px) 40vw, 100vw"
-                className="object-cover object-[66%_50%]"
+                className="object-cover object-[50%_40%]"
               />
             </ImageReveal>
           </div>
