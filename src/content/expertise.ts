@@ -38,9 +38,9 @@ export const expertisePhoto: { src: string; alt: string } | null = null;
 export const assessments: Assessment[] = [
   {
     id: "bilan-body-360",
-    image: "/images/posture-bilan.webp",
-    imageAlt: "Praticien observant la posture d'une femme sur une plateforme d'analyse, avec repères d'alignement",
-    focus: "50% 35%",
+    image: "/images/body-360.jpg",
+    imageAlt: "Praticien commentant l'analyse corporelle d'une femme debout sur une plateforme de mesure, devant un écran de scan du corps",
+    focus: "20% 50%",
     name: "Bilan SPORTHESIA BODY 360",
     text: "Une consultation d'expertise d'environ 50 minutes : mesures corporelles, entretien, analyse de vos résultats et recommandations individualisées.",
     detail: "Mesures ANOVATOR incluses ; option AeroCore™ facultative pour la posture. Le point de départ d'un parcours personnalisé.",

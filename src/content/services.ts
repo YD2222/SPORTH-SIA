@@ -801,8 +801,8 @@ export const body360 = {
   hook: "Mieux comprendre son corps pour avancer avec des repères concrets.",
   intro:
     "Découvrez nos évaluations corporelles, du bilan de mesures ANOVATOR à l'accompagnement personnalisé SPORTHESIA BODY 360.",
-  image: "", // TODO photo A (femme debout sur plateforme) — à recevoir
-  imageAlt: "Illustration d'une évaluation corporelle accompagnée",
+  image: "/images/body-360.jpg",
+  imageAlt: "Praticien commentant l'analyse corporelle d'une femme debout sur une plateforme de mesure, devant un écran de scan du corps",
   imageCaption: "Illustration d'une évaluation corporelle accompagnée",
   seoTitle: "Bilan corporel ANOVATOR et BODY 360 à Paris 7e",
   seoDescription:

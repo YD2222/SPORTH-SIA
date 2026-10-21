@@ -67,13 +67,13 @@ export default function Body360Page() {
       <section className="pb-20">
         <figure className={container}>
           {body360.image ? (
-            <ImageReveal className="relative aspect-[4/5] overflow-hidden rounded-[32px] sm:aspect-[16/8]">
-              <Image src={body360.image} alt={body360.imageAlt} fill priority sizes="100vw" className="object-cover object-center" />
+            <ImageReveal className="relative mx-auto aspect-[4/5] max-w-[1100px] overflow-hidden rounded-[32px] sm:aspect-[16/10]">
+              <Image src={body360.image} alt={body360.imageAlt} fill priority sizes="(min-width:1100px) 1100px, 100vw" className="object-cover object-[30%_50%] sm:object-center" />
             </ImageReveal>
           ) : (
             <PhotoSlot caption="Photographie en cours de réalisation" className="aspect-[4/3] rounded-[32px] sm:aspect-[16/7]" />
           )}
-          <figcaption className="mt-3 text-sm text-ardoise">{body360.imageCaption}</figcaption>
+          <figcaption className="mx-auto mt-3 max-w-[1100px] text-sm text-ardoise">{body360.imageCaption}</figcaption>
         </figure>
       </section>
 
