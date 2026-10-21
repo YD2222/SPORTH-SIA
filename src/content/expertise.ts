@@ -38,9 +38,9 @@ export const expertisePhoto: { src: string; alt: string } | null = null;
 export const assessments: Assessment[] = [
   {
     id: "bilan-body-360",
-    image: "/images/expertise-posture.webp",
-    imageAlt: "Praticien guidant l'alignement postural d'une jeune femme debout",
-    focus: "50% 30%",
+    image: "/images/posture-bilan.webp",
+    imageAlt: "Praticien observant la posture d'une femme sur une plateforme d'analyse, avec repères d'alignement",
+    focus: "50% 35%",
     name: "Bilan SPORTHESIA BODY 360",
     text: "Une consultation d'expertise d'environ 50 minutes : mesures corporelles, entretien, analyse de vos résultats et recommandations individualisées.",
     detail: "Mesures ANOVATOR incluses ; option AeroCore™ facultative pour la posture. Le point de départ d'un parcours personnalisé.",
@@ -49,8 +49,8 @@ export const assessments: Assessment[] = [
   },
   {
     id: "bilan-clinique-ops",
-    image: "/images/posture-bilan.webp",
-    imageAlt: "Analyse posturale avec repères d'alignement sur une plateforme",
+    image: "/images/bilan-clinique-ops.webp",
+    imageAlt: "Praticien en blouse observant l'alignement postural d'une jeune femme, vue de profil",
     focus: "50% 35%",
     name: "Bilan Clinique OPS",
     text: "Une évaluation posturale spécialisée, proposée lorsque votre situation le justifie, pour approfondir l'analyse de votre posture et de vos appuis.",
@@ -60,9 +60,9 @@ export const assessments: Assessment[] = [
   },
   {
     id: "bilan-emotionnel",
-    image: "/images/bilan-emotionnel.jpg",
-    imageAlt: "Kinésiologue à l'écoute d'une cliente lors d'un entretien",
-    focus: "62% 40%",
+    image: "/images/bilan-emotionnel.webp",
+    imageAlt: "Kinésiologue accompagnant une cliente debout lors d'un bilan émotionnel, dans le studio SPORTHESIA",
+    focus: "52% 30%",
     name: "Bilan émotionnel en kinésiologie",
     text: "Un temps d'écoute avec un kinésiologue pour identifier les blocages où le corps et les émotions se rejoignent, dits somato-émotionnels.",
     detail: "Démarche de bien-être, non médicale : elle ne remplace ni un diagnostic, ni un traitement, ni un suivi psychologique.",
@@ -72,8 +72,8 @@ export const assessments: Assessment[] = [
   {
     id: "bilan-mobilite",
     image: "/images/bilan-mobilite.jpg",
-    imageAlt: "Exercice d'équilibre encadré par un professionnel",
-    focus: "50% 40%",
+    imageAlt: "Coach SPORTHESIA évaluant l'équilibre et la mobilité d'une cliente sur un tapis d'analyse du mouvement",
+    focus: "57% 40%",
     name: "Bilan mobilité, équilibre et force",
     text: "Des tests simples réalisés par un professionnel pour mesurer votre mobilité, votre équilibre et votre force, et adapter votre activité à vos capacités.",
     detail: "Un repère concret avant de reprendre ou de faire progresser votre activité physique, en cours collectif ou en séance individuelle.",

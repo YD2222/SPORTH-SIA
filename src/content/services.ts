@@ -322,8 +322,8 @@ export const universes: Universe[] = [
     homeCta: "Découvrir la silhouette",
     image: "/images/silhouette.jpg",
     imageAlt: "Portrait de profil d'une femme, épaule nue, lumière douce",
-    detailImage: "/images/studio2.jpg",
-    detailImageAlt: "Espace lumineux et épuré",
+    detailImage: "/images/silhouette-bilan.jpg",
+    detailImageAlt: "Praticienne SPORTHESIA mesurant le tour de taille d'une cliente, avec l'analyse ANOVATOR de la silhouette et du visage à l'écran",
     keywords: "cryolipolyse Paris 7e, soin silhouette, bilan ANOVATOR",
     seoTitle: "Cryolipolyse et soins silhouette à Paris 7e",
     seoDescription:
