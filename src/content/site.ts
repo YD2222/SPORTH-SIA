@@ -10,14 +10,15 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sporthesia.fr", // TODO domaine définitif
   description:
     "SPORTHESIA, Paris 7e : posture, mouvement, récupération, silhouette et visage. Bilan ANOVATOR Découverte, bilan BODY 360, bilan postural AeroCore™, Clinique OPS, kinésiologie, cours de gym en petit groupe (4 max), massage bien-être, cryolipolyse.",
-  // TODO coordonnées à confirmer
   address: {
-    street: "Adresse communiquée prochainement",
+    street: "5 rue Cognacq-Jay",
     postalCode: "75007",
     city: "Paris",
     country: "FR",
   },
-  geo: { lat: 48.8566, lng: 2.3126 }, // TODO coordonnées exactes du lieu
+  geo: { lat: 48.86166, lng: 2.30466 },
+  /** Stations de métro les plus proches. */
+  metro: ["Alma-Marceau", "Invalides", "École Militaire"],
   phone: "", // TODO
   email: "contact@sporthesia.fr", // TODO
   hours: [

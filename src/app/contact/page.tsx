@@ -22,12 +22,15 @@ export default function Page() {
             <br />
             {site.address.postalCode} {site.address.city}
           </address>
+          <p className="mt-3 text-sm">
+            <span className="font-semibold text-nuit">Métro :</span> {site.metro.join(", ")}
+          </p>
         </div>
         <div>
           <h2>Horaires</h2>
           <ul className="!ml-0">
             {site.hours.map((h) => (
-              <li key={h.days} className="!ml-0 list-none">
+              <li key={h.days} style={{ listStyle: "none", marginLeft: 0 }}>
                 {h.days} · {h.hours}
               </li>
             ))}

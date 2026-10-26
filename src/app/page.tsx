@@ -204,6 +204,7 @@ export default function Home() {
             <p className="mt-3 text-base">
               {site.address.street}, {site.address.postalCode} {site.address.city}
             </p>
+            <p className="mt-1 text-sm text-nuit/60">Métro {site.metro.join(" · ")}</p>
           </div>
           <div>
             <p className="eyebrow text-or">Horaires</p>

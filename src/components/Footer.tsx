@@ -53,6 +53,7 @@ export function Footer() {
             <br />
             {site.address.postalCode} {site.address.city}
           </address>
+          <p className="mt-2 text-xs text-ivoire/60">Métro {site.metro.join(" · ")}</p>
           <ul className="mt-4 space-y-1 text-sm">
             {site.hours.map((h) => (
               <li key={h.days}>
