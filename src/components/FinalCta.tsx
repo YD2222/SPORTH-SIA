@@ -6,7 +6,7 @@ import { RevealWords, Reveal } from "./motion";
 import { btn, container } from "./ui";
 
 export function FinalCta({
-  title = "Votre évolution commence ici.",
+  title = "Votre transformation commence ici.",
   text = "Prenez le temps de découvrir ce qui vous correspond.",
 }: {
   title?: string;
