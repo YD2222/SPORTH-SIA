@@ -54,6 +54,6 @@ export const signatures = {
   histoire: "Notre corps raconte aussi notre histoire.",
   renouer: "Renouer avec son corps et explorer de nouvelles possibilités.",
   envie: "La transformation commence par l'envie d'avancer.",
-  acteur: "Devenez acteur de votre évolution, à votre rythme.",
+  acteur: "Devenez acteur de votre transformation, à votre rythme.",
   premierPas: "Avec SPORTHESIA, osez le premier pas !",
 };
