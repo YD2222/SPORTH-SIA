@@ -10,9 +10,9 @@ export function NewsCards({ items }: { items: NewsItem[] }) {
     return <p className="text-nuit/60">Aucune offre en cours pour le moment. Revenez bientôt, ou demandez à Charly.</p>;
   }
   return (
-    <div className="grid gap-5 md:grid-cols-3">
+    <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:-mx-8 sm:px-8 md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0 md:pb-0">
       {items.map((n, i) => (
-        <Reveal key={n.id} delay={i * 0.08} className="h-full">
+        <Reveal key={n.id} delay={i * 0.06} className="h-auto w-[82%] shrink-0 snap-center sm:w-[60%] md:w-auto md:shrink">
           <article className="flex h-full flex-col rounded-[24px] border border-nuit/10 bg-white/50 p-7 transition-colors duration-500 hover:border-or/60 hover:bg-white">
             <p className="eyebrow text-or">{n.kind}</p>
             <h3 className="font-display mt-4 text-[1.65rem] leading-tight">{n.title}</h3>

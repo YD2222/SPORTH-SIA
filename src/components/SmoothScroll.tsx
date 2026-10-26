@@ -1,31 +1,14 @@
 "use client";
 
-import Lenis from "lenis";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
+/** Défilement natif du navigateur : fluide sur tous les appareils, sans lissage JavaScript. */
 export function SmoothScroll() {
-  const lenis = useRef<Lenis | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const l = new Lenis({ duration: 1.15, easing: (t) => 1 - Math.pow(1 - t, 4), touchMultiplier: 1.2 });
-    lenis.current = l;
-    let raf = 0;
-    const loop = (t: number) => {
-      l.raf(t);
-      raf = requestAnimationFrame(loop);
-    };
-    raf = requestAnimationFrame(loop);
-    return () => {
-      cancelAnimationFrame(raf);
-      l.destroy();
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!window.location.hash) lenis.current?.scrollTo(0, { immediate: true });
+    if (!window.location.hash) window.scrollTo(0, 0);
   }, [pathname]);
 
   return null;

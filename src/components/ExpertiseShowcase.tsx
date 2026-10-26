@@ -20,7 +20,7 @@ export function ExpertiseShowcase({ detailed = false }: { detailed?: boolean }) 
         <ImageReveal className="overflow-hidden rounded-[32px]">
           <div className="grid grid-cols-2 gap-1.5 lg:grid-cols-4">
           {assessments.map((a) => (
-            <div key={a.id} className="relative aspect-[3/4] overflow-hidden bg-brume lg:aspect-[3/4.4]">
+            <div key={a.id} className="relative aspect-square overflow-hidden bg-brume sm:aspect-[3/4] lg:aspect-[3/4.4]">
               <Image src={a.image} alt={a.imageAlt} fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover" style={{ objectPosition: a.focus }} />
             </div>
           ))}
@@ -28,9 +28,15 @@ export function ExpertiseShowcase({ detailed = false }: { detailed?: boolean }) 
         </ImageReveal>
       )}
 
-      <div className={`mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2 ${detailed ? "" : "lg:grid-cols-4"}`}>
+      <div
+        className={
+          detailed
+            ? "mt-10 grid gap-x-8 gap-y-10 sm:grid-cols-2"
+            : "-mx-5 mt-8 flex snap-x snap-mandatory scroll-pl-5 gap-5 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:mx-0 sm:mt-10 sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4"
+        }
+      >
         {assessments.map((a, i) => (
-          <Reveal key={a.id} delay={i * 0.08}>
+          <Reveal key={a.id} delay={i * 0.06} className={detailed ? "" : "w-[78%] shrink-0 snap-start sm:w-auto sm:shrink"}>
             <article id={detailed ? a.id : undefined} className="scroll-mt-28 border-t border-or/40 pt-5">
               <h3 className="font-display text-[1.45rem] leading-tight">{a.name}</h3>
               <p className="mt-3 text-[0.98rem] leading-relaxed text-nuit/70">{a.text}</p>

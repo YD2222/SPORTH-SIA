@@ -115,7 +115,7 @@ export default function Body360Page() {
         </div>
       </section>
 
-      <section aria-labelledby="faq-title" className="pb-24 lg:pb-32">
+      <section aria-labelledby="faq-title" className="pb-16 sm:pb-24 lg:pb-32">
         <div className={`${container} grid gap-10 lg:grid-cols-12`}>
           <div className="lg:col-span-4">
             <p className="eyebrow text-or">Questions fréquentes</p>

@@ -71,7 +71,7 @@ export function Doors() {
       </div>
 
       {/* Mobile & tablette */}
-      <div className="grid gap-5 sm:grid-cols-2 lg:hidden">
+      <div className="grid grid-cols-2 gap-x-3 gap-y-6 sm:gap-x-5 lg:hidden">
         {universes.map((u, i) => (
           <motion.div
             key={u.slug}
@@ -81,13 +81,13 @@ export function Doors() {
             transition={{ duration: 1, ease, delay: (i % 2) * 0.08 }}
           >
             <Link href={`/${u.slug}`} className="group block">
-              <div className="relative aspect-[4/4.6] overflow-hidden rounded-t-full rounded-b-[24px] bg-brume">
-                <Image src={u.image} alt="" fill sizes="(min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-1000 group-hover:scale-105" />
+              <div className="relative aspect-[3/4] overflow-hidden rounded-t-full rounded-b-[20px] bg-brume">
+                <Image src={u.image} alt="" fill sizes="(min-width: 640px) 50vw, 50vw" className="object-cover transition-transform duration-1000 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-encre/70 via-transparent to-transparent" />
-                <h3 className="absolute bottom-5 left-6 font-display text-[2rem] leading-none text-ivoire">{u.name}</h3>
+                <h3 className="absolute bottom-3 left-0 right-0 text-center font-display text-[1.25rem] leading-none text-ivoire sm:text-[1.8rem]">{u.name}</h3>
               </div>
-              <p className="mt-4 text-[1.02rem] leading-relaxed text-nuit/75">{u.cardLine}</p>
-              <span className="mt-3 inline-flex items-center gap-2 border-b border-or pb-1 text-[0.72rem] font-semibold tracking-[0.16em] uppercase">
+              <p className="mt-3 text-[0.88rem] leading-snug text-nuit/75 sm:text-[1rem]">{u.cardLine}</p>
+              <span className="mt-2 inline-flex items-center gap-1.5 border-b border-or pb-0.5 text-[0.62rem] font-semibold tracking-[0.12em] uppercase sm:text-[0.72rem]">
                 {u.homeCta} <ArrowUpRight className="size-4" />
               </span>
             </Link>

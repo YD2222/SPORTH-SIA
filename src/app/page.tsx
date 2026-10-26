@@ -36,7 +36,7 @@ export default function Home() {
       </section>
 
       {/* Quatre univers */}
-      <section id="univers" aria-labelledby="univers-title" className="scroll-mt-24 py-24 lg:py-32">
+      <section id="univers" aria-labelledby="univers-title" className="scroll-mt-24 py-16 sm:py-24 lg:py-32">
         <div className={container}>
           <div className="mb-14 flex flex-col gap-6 lg:mb-20 lg:flex-row lg:items-end lg:justify-between">
             <div>
@@ -57,7 +57,7 @@ export default function Home() {
       </section>
 
       {/* Mieux comprendre son corps — BODY 360 */}
-      <section aria-labelledby="bilans-title" className="pb-24 lg:pb-32">
+      <section aria-labelledby="bilans-title" className="pb-16 sm:pb-24 lg:pb-32">
         <div className={container}>
           <div className="grain relative grid gap-10 overflow-hidden rounded-[32px] bg-nuit px-7 py-12 text-ivoire sm:px-12 lg:grid-cols-12 lg:items-center lg:py-16">
             <div className="lg:col-span-6">
@@ -107,7 +107,7 @@ export default function Home() {
       <Philosophy />
 
       {/* Notre expertise — texte, grande photo, bilans */}
-      <section aria-labelledby="expertise-title" className="bg-brume/70 py-24 lg:py-32">
+      <section aria-labelledby="expertise-title" className="bg-brume/70 py-16 sm:py-24 lg:py-32">
         <div className={container}>
           <div className="grid gap-10 lg:grid-cols-12">
             <div className="lg:col-span-5">
@@ -133,7 +133,7 @@ export default function Home() {
       </section>
 
       {/* Kinésiologie de bien-être */}
-      <section aria-labelledby="kine-title" className="py-24 lg:py-32">
+      <section aria-labelledby="kine-title" className="py-16 sm:py-24 lg:py-32">
         <div className={`${container} grid gap-10 lg:grid-cols-12`}>
           <div className="lg:col-span-5">
             <p className="eyebrow text-or">Accompagnement complémentaire</p>
@@ -156,7 +156,7 @@ export default function Home() {
       </section>
 
       {/* Besoin d'être orienté */}
-      <section className="pb-24 lg:pb-32">
+      <section className="pb-16 sm:pb-24 lg:pb-32">
         <div className={container}>
           <Reveal className="relative grid items-center gap-8 overflow-hidden rounded-[32px] bg-sable px-7 py-12 sm:px-12 lg:grid-cols-12 lg:py-16">
             <div className="lg:col-span-7">
@@ -177,7 +177,7 @@ export default function Home() {
       </section>
 
       {/* Actualités et offres */}
-      <section aria-labelledby="news-title" className="border-t border-nuit/10 py-24 lg:py-28">
+      <section aria-labelledby="news-title" className="border-t border-nuit/10 py-16 sm:py-24 lg:py-28">
         <div className={container}>
           <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
             <div>

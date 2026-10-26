@@ -24,8 +24,8 @@ function Para({ text, first }: { text: string; first?: boolean }) {
       style={{ opacity }}
       className={
         first
-          ? "font-display text-[clamp(1.9rem,3.6vw,3.1rem)] leading-[1.15] font-light"
-          : "font-display text-[clamp(1.35rem,2.3vw,2rem)] leading-[1.35] font-light"
+          ? "font-display text-[clamp(1.55rem,3.6vw,3.1rem)] leading-[1.15] font-light"
+          : "font-display text-[clamp(1.15rem,2.3vw,2rem)] leading-[1.35] font-light"
       }
     >
       {text}
@@ -35,7 +35,7 @@ function Para({ text, first }: { text: string; first?: boolean }) {
 
 export function Philosophy() {
   return (
-    <section aria-labelledby="philo-title" className="relative py-28 lg:py-40">
+    <section aria-labelledby="philo-title" className="relative py-16 sm:py-24 lg:py-40">
       <div className={`${container} grid gap-12 lg:grid-cols-12`}>
         <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-32">
@@ -51,7 +51,7 @@ export function Philosophy() {
             </div>
           </div>
         </div>
-        <div className="space-y-10 lg:col-span-7 lg:col-start-6">
+        <div className="space-y-6 sm:space-y-10 lg:col-span-7 lg:col-start-6">
           {paragraphs.map((p, i) => (
             <Para key={i} text={p} first={i === 0} />
           ))}

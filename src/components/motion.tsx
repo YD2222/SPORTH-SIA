@@ -9,7 +9,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export function Reveal({
   children,
   delay = 0,
-  y = 28,
+  y = 18,
   className,
   ...rest
 }: { children: ReactNode; delay?: number; y?: number } & HTMLMotionProps<"div">) {
@@ -19,8 +19,8 @@ export function Reveal({
       className={className}
       initial={reduce ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -12% 0px" }}
-      transition={{ duration: 1.1, ease, delay }}
+      viewport={{ once: true, margin: "0px 0px -4% 0px" }}
+      transition={{ duration: 0.7, ease, delay }}
       {...rest}
     >
       {children}
@@ -58,8 +58,8 @@ export function RevealWords({
             className={`inline-block ${em ? "italic text-or" : ""}`}
             initial={reduce ? false : { y: "105%", opacity: 0 }}
             whileInView={{ y: "0%", opacity: 1 }}
-            viewport={{ once: true, margin: "0px 0px -8% 0px" }}
-            transition={{ duration: 1, ease, delay: delay + i * stagger }}
+            viewport={{ once: true, margin: "0px 0px -4% 0px" }}
+            transition={{ duration: 0.75, ease, delay: delay + i * Math.min(stagger, 0.04) }}
           >
             {w}
           </motion.span>
@@ -78,15 +78,15 @@ export function ImageReveal({ children, className, delay = 0 }: { children: Reac
       className={className}
       initial={reduce ? false : { clipPath: "inset(100% 0% 0% 0% round 0px)" }}
       whileInView={{ clipPath: "inset(0% 0% 0% 0% round 0px)" }}
-      viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-      transition={{ duration: 1.4, ease, delay }}
+      viewport={{ once: true, margin: "0px 0px -4% 0px" }}
+      transition={{ duration: 0.95, ease, delay }}
     >
       <motion.div
         className="h-full w-full"
         initial={reduce ? false : { scale: 1.18 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 1.8, ease, delay }}
+        transition={{ duration: 1.2, ease, delay }}
       >
         {children}
       </motion.div>

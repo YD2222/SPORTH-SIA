@@ -91,7 +91,7 @@ export default async function UniversePage({ params }: Props) {
       </section>
 
       {/* Présentation */}
-      <section className="bg-brume/70 py-24 lg:py-32">
+      <section className="bg-brume/70 py-16 sm:py-24 lg:py-32">
         <div className={`${container} grid gap-14 lg:grid-cols-12 lg:items-center`}>
           <div className="space-y-6 lg:col-span-6">
             {u.intro.map((p, i) => (
@@ -117,7 +117,7 @@ export default async function UniversePage({ params }: Props) {
       </section>
 
       {/* Prestations */}
-      <section id="prestations" aria-labelledby="prestations-title" className="scroll-mt-20 py-24 lg:py-32">
+      <section id="prestations" aria-labelledby="prestations-title" className="scroll-mt-20 py-16 sm:py-24 lg:py-32">
         <div className={container}>
           <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
             <div>
@@ -200,7 +200,7 @@ export default async function UniversePage({ params }: Props) {
       )}
 
       {/* Phrase de conclusion */}
-      <section className="py-20 lg:py-28">
+      <section className="py-14 sm:py-20 lg:py-28">
         <div className={`${container} text-center`}>
           <span aria-hidden className="mx-auto mb-10 block h-20 w-px bg-gradient-to-b from-transparent to-or" />
           <RevealWords
@@ -217,7 +217,7 @@ export default async function UniversePage({ params }: Props) {
       </section>
 
       {/* FAQ */}
-      <section aria-labelledby="faq-title" className="pb-24 lg:pb-32">
+      <section aria-labelledby="faq-title" className="pb-16 sm:pb-24 lg:pb-32">
         <div className={`${container} grid gap-10 lg:grid-cols-12`}>
           <div className="lg:col-span-4">
             <p className="eyebrow text-or">Questions fréquentes</p>

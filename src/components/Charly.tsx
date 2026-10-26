@@ -42,7 +42,6 @@ export function CharlyProvider({ children }: { children: ReactNode }) {
             <button aria-label="Fermer" onClick={close} className="absolute inset-0 bg-encre/40 backdrop-blur-sm" />
             <motion.aside
               role="dialog"
-              data-lenis-prevent
               aria-modal="true"
               aria-labelledby="charly-title"
               className="absolute right-0 bottom-0 flex max-h-[92dvh] w-full flex-col overflow-hidden rounded-t-[2rem] bg-ivoire shadow-2xl sm:top-3 sm:right-3 sm:bottom-3 sm:max-h-none sm:w-[440px] sm:rounded-[2rem]"

@@ -20,7 +20,10 @@ export function Header() {
   useMotionValueEvent(scrollY, "change", (y) => {
     const prev = scrollY.getPrevious() ?? 0;
     setScrolled(y > 24);
-    setHidden(y > 400 && y > prev && !menu);
+    const delta = y - prev;
+    if (y < 400) setHidden(false);
+    else if (delta > 14 && !menu) setHidden(true);
+    else if (delta < -14) setHidden(false);
   });
 
   useEffect(() => setMenu(false), [pathname]);
@@ -82,7 +85,6 @@ export function Header() {
         {menu && (
           <motion.div
             id="menu-mobile"
-            data-lenis-prevent
             className="fixed inset-0 z-40 flex flex-col bg-ivoire pt-[96px] lg:hidden"
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
