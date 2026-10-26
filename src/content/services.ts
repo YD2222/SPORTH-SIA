@@ -44,6 +44,11 @@ export type Service = {
   name: string;
   /** Bénéfice formulé avec prudence. */
   summary: string;
+  /** Paragraphes complémentaires affichés sous le résumé. */
+  description?: string[];
+  /** Photo de la prestation (fiche prestation). */
+  image?: string;
+  imageAlt?: string;
   durationMin: number | null;
   durationLabel: string;
   price: number | null;
@@ -168,20 +173,12 @@ export const universes: Universe[] = [
     imageAlt: "Petit groupe en séance d'étirements au sol dans un studio lumineux",
     detailImage: "/images/mouvement.jpg",
     detailImageAlt: "Trois personnes réalisant un étirement assis, à la lumière naturelle",
-    keywords: "cours collectif petit groupe Paris 7e, mobilité, renforcement, activité physique adaptée",
-    seoTitle: "Cours en petit groupe (4 max) à Paris 7e — mobilité, renforcement",
+    keywords: "cours collectif petit groupe Paris 7e, cours individuel one to one Paris 7e, coach APA, KINÉCOACH, mobilité, renforcement, activité physique adaptée",
+    seoTitle: "Cours en petit groupe et cours individuels One to One à Paris 7e",
     seoDescription:
-      "Cours collectifs de 55 minutes limités à 4 participants à Paris 7e : mobilité, renforcement, équilibre. 35 € la séance, carnet de 5 séances 175 €.",
+      "Cours collectifs de 55 minutes limités à 4 participants (35 €, carnet de 5 séances 175 €) et cours individuels One to One de 45 minutes (70 €) avec un coach APA ou un kinésithérapeute (KINÉCOACH), à Paris 7e.",
     notes: [
       "Les séances pourront être encadrées par un professionnel qualifié en activité physique adaptée, notamment pour des adultes souhaitant reprendre une activité progressivement.",
-    ],
-    soon: [
-      {
-        id: "seances-individuelles",
-        label: "Offre à venir",
-        title: "Séances individuelles",
-        paragraphs: ["Un accompagnement en tête-à-tête, à votre rythme. Tarifs et intervenants communiqués prochainement."],
-      },
     ],
     info: [
       {
@@ -217,6 +214,10 @@ export const universes: Universe[] = [
       {
         q: "Le carnet de cinq séances est-il une remise ?",
         a: "Non : le carnet est un format pratique au même tarif de 35 € par séance. Il vous évite de régler chaque cours séparément.",
+      },
+      {
+        q: "Quelle différence entre un cours en petit groupe et un cours individuel ?",
+        a: "Le cours en petit groupe (35 €, quatre personnes au plus) est un format collectif attentif. Le cours individuel One to One (45 minutes, 70 €) est entièrement construit pour vous, avec un coach APA ou, si votre situation le nécessite, un kinésithérapeute dans son approche KINÉCOACH.",
       },
       {
         q: "Puis-je prêter mon carnet ?",
@@ -522,6 +523,48 @@ export const services: Service[] = [
     forWhom: ["Vous souhaitez faire du mouvement une habitude."],
     steps: ["Réservez votre premier cours, les suivants se planifient à votre rythme."],
     precautions: ["Conditions d'utilisation et de validité du carnet précisées avant paiement."],
+  },
+
+  {
+    id: "cours-individuel",
+    anovator: { rule: "non-requis", note: "Accès direct après évaluation appropriée par le professionnel ; bilan ANOVATOR facultatif pour le suivi." },
+    universe: "mouvement",
+    name: "Cours individuels — One to One",
+    summary:
+      "Chez SPORTHESIA, profitez d'un accompagnement sportif entièrement personnalisé, adapté à votre condition physique, à vos capacités et à vos objectifs.",
+    description: [
+      "Les séances individuelles sont encadrées par un coach en Activité Physique Adaptée (APA) et, lorsque votre situation le nécessite, par un kinésithérapeute dans son approche KINÉCOACH.",
+      "Une alliance entre expertise du mouvement, prévention et coaching personnalisé pour progresser efficacement, en toute sécurité et à votre rythme.",
+    ],
+    image: "/images/cours-individuel.jpg",
+    imageAlt: "Coach SPORTHESIA corrigeant le geste d'une cliente lors d'un cours individuel One to One",
+    durationMin: 45,
+    durationLabel: "45 min",
+    price: 70,
+    priceLabel: "70 €",
+    priceStatus: "confirmé",
+    bookable: true,
+    capacity: 1,
+    kind: "séance",
+    seller: "Praticien diplômé — coach APA ou kinésithérapeute (KINÉCOACH)", // TODO nom(s) à confirmer
+    resources: { room: "plateau" },
+    forWhom: [
+      "Vous souhaitez un accompagnement entièrement personnalisé, à votre rythme.",
+      "Vous reprenez une activité après une pause, une blessure ou une période d'inactivité.",
+      "Vous voulez progresser en sécurité, avec un regard expert sur votre geste.",
+    ],
+    steps: [
+      "Échange sur votre condition physique, vos capacités et vos objectifs.",
+      "Séance construite pour vous : mobilité, renforcement, équilibre, coordination.",
+      "Corrections du geste en continu, par le coach.",
+      "Retour au calme et conseils pour la suite.",
+    ],
+    preparation: ["Tenue confortable, bouteille d'eau, serviette.", "Le matériel est fourni."],
+    precautions: [
+      "Signalez toute contre-indication à l'activité physique, douleur ou reprise après blessure.",
+      "Lorsque votre situation le nécessite, la séance est assurée par un kinésithérapeute.",
+      "Un certificat médical peut être demandé selon votre situation.",
+    ],
   },
 
   // — RÉCUPÉRATION —

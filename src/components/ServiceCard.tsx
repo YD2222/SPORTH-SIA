@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
@@ -43,8 +44,18 @@ export function ServiceCard({ s, index }: { s: Service; index: number }) {
               <span className="rounded-full border border-nuit/15 px-3 py-1 text-[0.68rem] font-semibold tracking-[0.14em] text-ardoise uppercase">Sans bilan préalable</span>
             )}
           </div>
-          <h3 className="font-display mt-3 text-[clamp(1.7rem,2.6vw,2.3rem)] leading-tight">{s.name}</h3>
+          {s.image && (
+            <div className="relative mt-4 aspect-[4/3] max-w-xl overflow-hidden rounded-[22px] bg-brume">
+              <Image src={s.image} alt={s.imageAlt ?? ""} fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover object-[40%_40%]" />
+            </div>
+          )}
+          <h3 className="font-display mt-4 text-[clamp(1.7rem,2.6vw,2.3rem)] leading-tight">{s.name}</h3>
           <p className="mt-3 max-w-xl text-[1.05rem] leading-relaxed text-nuit/70">{s.summary}</p>
+          {s.description?.map((d) => (
+            <p key={d} className="mt-3 max-w-xl text-[0.98rem] leading-relaxed text-nuit/65">
+              {d}
+            </p>
+          ))}
         </div>
 
         <dl className="grid grid-cols-2 gap-4 text-sm lg:col-span-3 lg:grid-cols-1 lg:pt-2">
