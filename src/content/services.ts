@@ -94,6 +94,8 @@ export type Universe = {
   imageAlt: string;
   detailImage: string;
   detailImageAlt: string;
+  /** Bandeau large affiché en entier sous l'en-tête de la page (photo avec texte intégré). */
+  banner?: { src: string; alt: string };
   /** Visuel vertical à afficher en entier (infographie, texte). */
   detailImagePortrait?: boolean;
   keywords: string;
@@ -130,6 +132,10 @@ export const universes: Universe[] = [
       "Quatre déséquilibres posturaux illustrés : tête en avant, dos voûté, bassin déséquilibré, genoux en dedans",
     detailImagePortrait: true,
     keywords: "bilan postural Paris 7e, analyse posturale, AeroCore, posture",
+    banner: {
+      src: "/images/posture-banniere.webp",
+      alt: "Praticien SPORTHESIA analysant la posture d'une femme vue de dos, avec miroir de repères d'alignement et écran d'analyse de la colonne vertébrale",
+    },
     seoTitle: "Bilan postural AeroCore™ à Paris 7e",
     seoDescription:
       "Bilan postural AeroCore™ de 60 minutes à Paris 7e : évaluation individualisée, restitution et dispositif personnel inclus (200 €). Séance de suivi postural.",
@@ -326,6 +332,10 @@ export const universes: Universe[] = [
     detailImage: "/images/silhouette-bilan.jpg",
     detailImageAlt: "Praticienne SPORTHESIA mesurant le tour de taille d'une cliente, avec l'analyse ANOVATOR de la silhouette et du visage à l'écran",
     keywords: "cryolipolyse Paris 7e, soin silhouette, bilan ANOVATOR",
+    banner: {
+      src: "/images/silhouette-visage.webp",
+      alt: "Silhouette & Visage : un praticien SPORTHESIA réalise un soin du visage avec un appareil, devant un écran d'analyse du visage. Prendre soin de soi, en toute confiance.",
+    },
     seoTitle: "Cryolipolyse et soins silhouette à Paris 7e",
     seoDescription:
       "Cryolipolyse à Paris 7e : un applicateur 190 €, deux applicateurs 250 € (60 min), après un bilan ANOVATOR Découverte. Sans promesse irréaliste.",
@@ -715,6 +725,8 @@ export const services: Service[] = [
     universe: "recuperation", // « Récupération physique » (tableau du 20/10)
     name: "Lapex",
     summary: "Une séance de 30 minutes, présentée en détail par le praticien selon l'usage autorisé de l'appareil.",
+    image: "/images/lapex.webp",
+    imageAlt: "Praticien SPORTHESIA utilisant l'appareil Lapex lors d'une séance de récupération physique",
     durationMin: 30,
     durationLabel: "30 min",
     price: 90,

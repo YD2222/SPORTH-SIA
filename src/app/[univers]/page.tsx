@@ -90,6 +90,17 @@ export default async function UniversePage({ params }: Props) {
         </div>
       </section>
 
+      {/* Bandeau (photo avec texte intégré) */}
+      {u.banner && (
+        <section className="pb-14 sm:pb-20">
+          <div className={container}>
+            <ImageReveal className="relative mx-auto aspect-[3/2] max-w-[1100px] overflow-hidden rounded-[28px] bg-brume sm:rounded-[36px]">
+              <Image src={u.banner.src} alt={u.banner.alt} fill sizes="(min-width:1100px) 1100px, 100vw" className="object-cover" />
+            </ImageReveal>
+          </div>
+        </section>
+      )}
+
       {/* Présentation */}
       <section className="bg-brume/70 py-16 sm:py-24 lg:py-32">
         <div className={`${container} grid gap-14 lg:grid-cols-12 lg:items-center`}>
