@@ -93,26 +93,28 @@ export default async function UniversePage({ params }: Props) {
       {/* Présentation */}
       <section className="bg-brume/70 py-16 sm:py-24 lg:py-32">
         <div className={`${container} grid gap-14 lg:grid-cols-12 lg:items-center`}>
-          <div className="space-y-6 lg:col-span-6">
+          <div className={u.detailImage ? "space-y-6 lg:col-span-6" : "space-y-6 lg:col-span-8 lg:col-start-3"}>
             {u.intro.map((p, i) => (
               <Reveal key={i} delay={i * 0.08}>
                 <p className={i === 0 ? "font-display text-[clamp(1.7rem,2.8vw,2.4rem)] leading-snug font-light" : "text-lg leading-relaxed text-nuit/75"}>{p}</p>
               </Reveal>
             ))}
           </div>
-          <div className="lg:col-span-5 lg:col-start-8">
-            <ImageReveal
-              className={`relative overflow-hidden rounded-[28px] ${u.detailImagePortrait ? "mx-auto aspect-[700/1024] max-w-[460px] bg-white" : "aspect-[4/3]"}`}
-            >
-              <Image
-                src={u.detailImage}
-                alt={u.detailImageAlt}
-                fill
-                sizes="(min-width:1024px) 40vw, 100vw"
-                className={u.detailImagePortrait ? "object-contain" : "object-cover"}
-              />
-            </ImageReveal>
-          </div>
+          {u.detailImage && (
+            <div className="lg:col-span-5 lg:col-start-8">
+              <ImageReveal
+                className={`relative overflow-hidden rounded-[28px] ${u.detailImagePortrait ? "mx-auto aspect-[700/1024] max-w-[460px] bg-white" : "aspect-[4/3]"}`}
+              >
+                <Image
+                  src={u.detailImage}
+                  alt={u.detailImageAlt ?? ""}
+                  fill
+                  sizes="(min-width:1024px) 40vw, 100vw"
+                  className={u.detailImagePortrait ? "object-contain" : "object-cover"}
+                />
+              </ImageReveal>
+            </div>
+          )}
         </div>
       </section>
 

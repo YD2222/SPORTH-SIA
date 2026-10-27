@@ -94,8 +94,9 @@ export type Universe = {
   imageAlt: string;
   /** Point focal du recadrage de la photo (cartes d'accueil et en-tête de page). */
   imageFocus?: string;
-  detailImage: string;
-  detailImageAlt: string;
+  /** Second visuel de la page, à côté du texte d'introduction (facultatif). */
+  detailImage?: string;
+  detailImageAlt?: string;
   /** Visuel vertical à afficher en entier (infographie, texte). */
   detailImagePortrait?: boolean;
   keywords: string;
@@ -250,8 +251,6 @@ export const universes: Universe[] = [
     image: "/images/recuperation-visuel.webp",
     imageAlt: "Praticien SPORTHESIA réalisant un massage de bien-être du dos. Récupération : retrouver son énergie et ses performances.",
     imageFocus: "36% 50%",
-    detailImage: "/images/salle.jpg",
-    detailImageAlt: "Salle de massage apaisante à la lumière tamisée",
     keywords: "massage bien-être Paris 7e, luminothérapie Paris, Lapex, MTT, récupération",
     seoTitle: "Massage bien-être et luminothérapie à Paris 7e",
     seoDescription:
@@ -275,8 +274,8 @@ export const universes: Universe[] = [
         ],
         footer: "Bientôt disponible chez SPORTHESIA — Univers Récupération, Paris 7e. Ouverture prochainement.",
         cta: "À découvrir bientôt",
-        image: "/images/brumisation.webp",
-        imageAlt: "Espace de relaxation intimiste avec deux transats, brume légère et éclairage chaud",
+        image: "/images/brumisation-salle.webp",
+        imageAlt: "Salle de relaxation avec deux transats ergonomiques, brume d'eau de mer et lampes de lumière chaude au plafond",
         imageCaption: "Visuel d'ambiance — remplacé par une photographie de l'espace réel à son ouverture.",
       },
     ],
