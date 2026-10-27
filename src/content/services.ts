@@ -92,10 +92,10 @@ export type Universe = {
   homeCta: string;
   image: string;
   imageAlt: string;
+  /** Point focal du recadrage de la photo (cartes d'accueil et en-tête de page). */
+  imageFocus?: string;
   detailImage: string;
   detailImageAlt: string;
-  /** Bandeau large affiché en entier sous l'en-tête de la page (photo avec texte intégré). */
-  banner?: { src: string; alt: string };
   /** Visuel vertical à afficher en entier (infographie, texte). */
   detailImagePortrait?: boolean;
   keywords: string;
@@ -125,17 +125,14 @@ export const universes: Universe[] = [
     conclusion: "Comprendre sa posture, c'est déjà porter un nouveau regard sur son corps.",
     cta: "Réserver mon bilan postural",
     homeCta: "Découvrir la posture",
-    image: "/images/posture-bilan.webp",
-    imageAlt: "Praticien observant la posture d'une femme debout sur une plateforme d'analyse, avec repères d'alignement",
+    image: "/images/posture-visuel.webp",
+    imageAlt: "Praticien SPORTHESIA analysant la posture d'une femme vue de dos, avec miroir de repères d'alignement et écran d'analyse de la colonne vertébrale",
+    imageFocus: "26% 40%",
     detailImage: "/images/posture-evolution.jpg",
     detailImageAlt:
       "Quatre déséquilibres posturaux illustrés : tête en avant, dos voûté, bassin déséquilibré, genoux en dedans",
     detailImagePortrait: true,
     keywords: "bilan postural Paris 7e, analyse posturale, AeroCore, posture",
-    banner: {
-      src: "/images/posture-banniere.webp",
-      alt: "Praticien SPORTHESIA analysant la posture d'une femme vue de dos, avec miroir de repères d'alignement et écran d'analyse de la colonne vertébrale",
-    },
     seoTitle: "Bilan postural AeroCore™ à Paris 7e",
     seoDescription:
       "Bilan postural AeroCore™ de 60 minutes à Paris 7e : évaluation individualisée, restitution et dispositif personnel inclus (200 €). Séance de suivi postural.",
@@ -175,8 +172,9 @@ export const universes: Universe[] = [
     conclusion: "Il n'est jamais trop tard pour retrouver le plaisir de bouger.",
     cta: "Voir les cours disponibles",
     homeCta: "Découvrir le mouvement",
-    image: "/images/mouvement2.jpg",
-    imageAlt: "Petit groupe en séance d'étirements au sol dans un studio lumineux",
+    image: "/images/mouvement-visuel.jpg",
+    imageAlt: "Coach SPORTHESIA corrigeant la posture d'une cliente lors d'une fente, dans une salle de mouvement équipée",
+    imageFocus: "54% 45%",
     detailImage: "/images/mouvement.jpg",
     detailImageAlt: "Trois personnes réalisant un étirement assis, à la lumière naturelle",
     keywords: "cours collectif petit groupe Paris 7e, cours individuel one to one Paris 7e, coach APA, KINÉCOACH, mobilité, renforcement, activité physique adaptée",
@@ -249,8 +247,9 @@ export const universes: Universe[] = [
     conclusion: "Prendre soin de soi, c'est aussi savoir s'accorder une pause.",
     cta: "Choisir ma séance",
     homeCta: "Découvrir la récupération",
-    image: "/images/massage.jpg",
-    imageAlt: "Mains d'un praticien pendant un massage de bien-être du dos",
+    image: "/images/recuperation-visuel.webp",
+    imageAlt: "Praticien SPORTHESIA réalisant un massage de bien-être du dos. Récupération : retrouver son énergie et ses performances.",
+    imageFocus: "36% 50%",
     detailImage: "/images/salle.jpg",
     detailImageAlt: "Salle de massage apaisante à la lumière tamisée",
     keywords: "massage bien-être Paris 7e, luminothérapie Paris, Lapex, MTT, récupération",
@@ -327,15 +326,12 @@ export const universes: Universe[] = [
     conclusion: "Prendre soin de sa silhouette, c'est avant tout le faire pour soi.",
     cta: "Découvrir les soins silhouette",
     homeCta: "Découvrir la silhouette",
-    image: "/images/silhouette.jpg",
-    imageAlt: "Portrait de profil d'une femme, épaule nue, lumière douce",
+    image: "/images/silhouette-visage.webp",
+    imageAlt: "Praticien SPORTHESIA réalisant un soin du visage avec un appareil, devant un écran d'analyse du visage",
+    imageFocus: "54% 45%",
     detailImage: "/images/silhouette-bilan.jpg",
     detailImageAlt: "Praticienne SPORTHESIA mesurant le tour de taille d'une cliente, avec l'analyse ANOVATOR de la silhouette et du visage à l'écran",
     keywords: "cryolipolyse Paris 7e, soin silhouette, bilan ANOVATOR",
-    banner: {
-      src: "/images/silhouette-visage.webp",
-      alt: "Silhouette & Visage : un praticien SPORTHESIA réalise un soin du visage avec un appareil, devant un écran d'analyse du visage. Prendre soin de soi, en toute confiance.",
-    },
     seoTitle: "Cryolipolyse et soins silhouette à Paris 7e",
     seoDescription:
       "Cryolipolyse à Paris 7e : un applicateur 190 €, deux applicateurs 250 € (60 min), après un bilan ANOVATOR Découverte. Sans promesse irréaliste.",

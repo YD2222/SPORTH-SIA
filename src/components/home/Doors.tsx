@@ -43,6 +43,7 @@ export function Doors() {
               >
                 <Image
                   src={u.image}
+                  style={{ objectPosition: u.imageFocus }}
                   alt=""
                   fill
                   sizes="(min-width: 1024px) 40vw, 100vw"
@@ -82,7 +83,7 @@ export function Doors() {
           >
             <Link href={`/${u.slug}`} className="group block">
               <div className="relative aspect-[3/4] overflow-hidden rounded-t-full rounded-b-[20px] bg-brume">
-                <Image src={u.image} alt="" fill sizes="(min-width: 640px) 50vw, 50vw" className="object-cover transition-transform duration-1000 group-hover:scale-105" />
+                <Image src={u.image} alt="" fill sizes="(min-width: 640px) 50vw, 50vw" className="object-cover transition-transform duration-1000 group-hover:scale-105" style={{ objectPosition: u.imageFocus }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-encre/70 via-transparent to-transparent" />
                 <h3 className="absolute bottom-3 left-0 right-0 text-center font-display text-[1.25rem] leading-none text-ivoire sm:text-[1.8rem]">{u.name}</h3>
               </div>

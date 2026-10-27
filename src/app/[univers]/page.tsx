@@ -84,22 +84,11 @@ export default async function UniversePage({ params }: Props) {
           </div>
           <div className="lg:col-span-5">
             <ImageReveal className="relative mx-auto aspect-[4/5] max-w-[480px] overflow-hidden rounded-t-full rounded-b-[28px] bg-brume">
-              <Image src={u.image} alt={u.imageAlt} fill priority sizes="(min-width:1024px) 38vw, 90vw" className="object-cover" />
+              <Image src={u.image} alt={u.imageAlt} fill priority sizes="(min-width:1024px) 38vw, 90vw" className="object-cover" style={{ objectPosition: u.imageFocus }} />
             </ImageReveal>
           </div>
         </div>
       </section>
-
-      {/* Bandeau (photo avec texte intégré) */}
-      {u.banner && (
-        <section className="pb-14 sm:pb-20">
-          <div className={container}>
-            <ImageReveal className="relative mx-auto aspect-[3/2] max-w-[1100px] overflow-hidden rounded-[28px] bg-brume sm:rounded-[36px]">
-              <Image src={u.banner.src} alt={u.banner.alt} fill sizes="(min-width:1100px) 1100px, 100vw" className="object-cover" />
-            </ImageReveal>
-          </div>
-        </section>
-      )}
 
       {/* Présentation */}
       <section className="bg-brume/70 py-16 sm:py-24 lg:py-32">
