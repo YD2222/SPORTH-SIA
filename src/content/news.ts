@@ -38,7 +38,7 @@ export const news: NewsItem[] = [
     id: "hifu",
     kind: "Prochainement",
     title: "HIFU — ultrasons focalisés",
-    text: "Une nouvelle technologie esthétique de traitement ciblé rejoindra l'univers Silhouette.",
+    text: "Une nouvelle technologie esthétique de traitement ciblé rejoindra l'univers Silhouette & Visage.",
     conditions: "Informations et modalités de consultation communiquées lors de son ouverture.",
     link: { href: "/silhouette#hifu", label: "En savoir plus" },
   },

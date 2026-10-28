@@ -87,7 +87,7 @@ const CHARLY_EXTRAS: Partial<Record<string, { name: string; detail: string; href
 function Orientation({ onNavigate }: { onNavigate: () => void }) {
   const [choice, setChoice] = useState<string | null>(null);
   const options = [
-    ...universes.map((x) => ({ slug: x.slug as string, name: x.name, line: CHARLY_LINES[x.slug] ?? x.cardLine })),
+    ...universes.map((x) => ({ slug: x.slug as string, name: x.fullName ?? x.name, line: CHARLY_LINES[x.slug] ?? x.cardLine })),
   ];
   const u = options.find((x) => x.slug === choice);
   return (

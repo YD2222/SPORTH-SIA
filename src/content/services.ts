@@ -82,6 +82,8 @@ export type Service = {
 export type Universe = {
   slug: UniverseSlug;
   name: string;
+  /** Nom complet affiché sur les cartes, l'en-tête de page et dans Charly (le menu garde `name`). */
+  fullName?: string;
   title: string;
   /** Phrase courte des cartes d'accueil. */
   cardLine: string;
@@ -314,26 +316,27 @@ export const universes: Universe[] = [
   {
     slug: "silhouette",
     name: "Silhouette",
-    title: "Se sentir bien dans son corps",
-    cardLine: "Prendre soin de son corps et de son image.",
-    hook: "Des soins corporels adaptés à vos objectifs.",
+    fullName: "Silhouette & Visage",
+    title: "Se sentir bien dans son corps et son visage",
+    cardLine: "Prendre soin de son corps et de son visage.",
+    hook: "Des soins du corps et du visage adaptés à vos objectifs.",
     intro: [
       "Notre silhouette évolue avec le temps, notre mode de vie et notre histoire.",
-      "Prendre soin de son apparence peut aussi participer au plaisir de se retrouver et de se sentir mieux dans son corps.",
-      "SPORTHESIA propose des prestations esthétiques corporelles personnalisées, dans une approche respectueuse de chacun, sans modèle imposé ni promesse irréaliste.",
+      "Prendre soin de son apparence, de son corps comme de son visage, peut aussi participer au plaisir de se retrouver et de se sentir mieux.",
+      "SPORTHESIA propose des prestations esthétiques du corps et du visage, personnalisées, dans une approche respectueuse de chacun, sans modèle imposé ni promesse irréaliste.",
     ],
-    conclusion: "Prendre soin de sa silhouette, c'est avant tout le faire pour soi.",
-    cta: "Découvrir les soins silhouette",
-    homeCta: "Découvrir la silhouette",
+    conclusion: "Prendre soin de son corps et de son visage, c'est avant tout le faire pour soi.",
+    cta: "Découvrir les soins silhouette et visage",
+    homeCta: "Découvrir silhouette & visage",
     image: "/images/silhouette-visage.webp",
     imageAlt: "Praticien SPORTHESIA réalisant un soin du visage avec un appareil, devant un écran d'analyse du visage",
     imageFocus: "54% 45%",
     detailImage: "/images/silhouette-bilan.jpg",
     detailImageAlt: "Praticienne SPORTHESIA mesurant le tour de taille d'une cliente, avec l'analyse ANOVATOR de la silhouette et du visage à l'écran",
-    keywords: "cryolipolyse Paris 7e, soin silhouette, bilan ANOVATOR",
-    seoTitle: "Cryolipolyse et soins silhouette à Paris 7e",
+    keywords: "soin du visage Paris 7e, soins esthétiques visage, cryolipolyse Paris 7e, soin silhouette, HIFU, bilan ANOVATOR",
+    seoTitle: "Soins silhouette et visage à Paris 7e — cryolipolyse",
     seoDescription:
-      "Cryolipolyse à Paris 7e : un applicateur 190 €, deux applicateurs 250 € (60 min), après un bilan ANOVATOR Découverte. Sans promesse irréaliste.",
+      "Soins du corps et du visage à Paris 7e : cryolipolyse (un applicateur 190 €, deux applicateurs 250 €, après un bilan ANOVATOR Découverte) et soins esthétiques du visage à venir. Sans promesse irréaliste.",
     notes: [
     ],
     soon: [
@@ -341,14 +344,22 @@ export const universes: Universe[] = [
         id: "radiofrequence",
         label: "Offre à venir",
         title: "Radiofréquence",
-        paragraphs: ["Cette technique rejoindra l'univers Silhouette après validation de la prestation. Ni tarif ni réservation pour le moment."],
+        paragraphs: ["Cette technique rejoindra l'univers Silhouette & Visage après validation de la prestation. Ni tarif ni réservation pour le moment."],
+      },
+      {
+        id: "soins-visage",
+        label: "Offre à venir",
+        title: "Soins esthétiques du visage",
+        paragraphs: [
+          "Des soins esthétiques du visage rejoindront l'univers Silhouette & Visage. Chaque soin fait l'objet d'une évaluation spécifique ; le bilan ANOVATOR n'est pas requis. Prestations et tarifs communiqués prochainement.",
+        ],
       },
       {
         id: "hifu",
         label: "Prochainement",
         title: "HIFU — ultrasons focalisés",
         paragraphs: [
-          "Une nouvelle technologie esthétique de traitement ciblé par ultrasons focalisés rejoindra prochainement notre univers Silhouette. Informations et modalités de consultation communiquées lors de son ouverture.",
+          "Une nouvelle technologie esthétique de traitement ciblé par ultrasons focalisés rejoindra prochainement notre univers Silhouette & Visage. Informations et modalités de consultation communiquées lors de son ouverture.",
         ],
         cta: "En savoir plus prochainement",
         // TODO : photo officielle du modèle exact (Nubway), après autorisation de réutilisation.
@@ -367,6 +378,10 @@ export const universes: Universe[] = [
       },
     ],
     faq: [
+      {
+        q: "Proposez-vous aussi des soins du visage ?",
+        a: "Oui, l'univers Silhouette & Visage comprend les soins esthétiques du visage. Ils rejoindront le centre prochainement : chaque soin fera l'objet d'une évaluation spécifique, sans bilan ANOVATOR préalable. Aucune réservation n'est possible avant leur ouverture.",
+      },
       {
         q: "La cryolipolyse garantit-elle un résultat ?",
         a: "Non. Les effets varient d'une personne à l'autre. Un échange préalable permet de vérifier l'absence de contre-indication et l'adéquation de la prestation à vos attentes.",

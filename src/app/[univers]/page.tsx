@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: u.keywords,
     alternates: { canonical: `/${u.slug}` },
     openGraph: {
-      title: `${u.name} — ${u.title} · SPORTHESIA`,
+      title: `${u.fullName ?? u.name} — ${u.title} · SPORTHESIA`,
       description: u.seoDescription,
       url: `/${u.slug}`,
       images: [{ url: u.image, alt: u.imageAlt }],
@@ -49,7 +49,7 @@ export default async function UniversePage({ params }: Props) {
         data={[
           breadcrumbLd([
             { name: "Accueil", path: "/" },
-            { name: u.name, path: `/${u.slug}` },
+            { name: u.fullName ?? u.name, path: `/${u.slug}` },
           ]),
           faqLd(u.faq),
           ...servicesLd(list, pageUrl),
@@ -61,13 +61,13 @@ export default async function UniversePage({ params }: Props) {
         <div className={`${container} grid items-end gap-12 lg:grid-cols-12`}>
           <div className="lg:col-span-7">
             <nav aria-label="Fil d'Ariane" className="text-xs text-ardoise">
-              <Link href="/" className="hover:text-nuit">Accueil</Link> <span className="mx-2 text-or">/</span> {u.name}
+              <Link href="/" className="hover:text-nuit">Accueil</Link> <span className="mx-2 text-or">/</span> {u.fullName ?? u.name}
             </nav>
             <h1 className="mt-8">
-              <span className="eyebrow block text-or">Univers {u.name}</span>
+              <span className="eyebrow block text-or">Univers {u.fullName ?? u.name}</span>
               <RevealWords
                 as="span"
-                text={u.name}
+                text={u.fullName ?? u.name}
                 className="font-display mt-4 block text-[clamp(3.6rem,11vw,9.5rem)] leading-[0.9] font-light"
               />
               <span className="font-display mt-3 block text-[clamp(1.6rem,3vw,2.6rem)] leading-tight font-light text-ardoise italic">{u.title}</span>
@@ -224,7 +224,7 @@ export default async function UniversePage({ params }: Props) {
           <div className="lg:col-span-4">
             <p className="eyebrow text-or">Questions fréquentes</p>
             <h2 id="faq-title" className="font-display mt-4 text-[clamp(2rem,3.4vw,2.8rem)] leading-tight font-light">
-              Vos questions, {u.name.toLowerCase()}
+              Vos questions, {(u.fullName ?? u.name).toLowerCase()}
             </h2>
           </div>
           <div className="lg:col-span-8">

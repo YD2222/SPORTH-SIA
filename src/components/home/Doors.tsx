@@ -39,7 +39,7 @@ export function Doors() {
               <Link
                 href={`/${u.slug}`}
                 className="group relative block h-full overflow-hidden rounded-t-full rounded-b-[28px] bg-brume"
-                aria-label={`${u.name} — ${u.cardLine}`}
+                aria-label={`${u.fullName ?? u.name} — ${u.cardLine}`}
               >
                 <Image
                   src={u.image}
@@ -51,7 +51,7 @@ export function Doors() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-encre/85 via-encre/20 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-7 text-ivoire">
-                  <h3 className="font-display text-[2.1rem] leading-none">{u.name}</h3>
+                  <h3 className="font-display text-[2.1rem] leading-[1.02]">{u.fullName ?? u.name}</h3>
                   <motion.div
                     initial={false}
                     animate={{ opacity: isActive ? 1 : 0, height: isActive ? "auto" : 0 }}
@@ -85,7 +85,7 @@ export function Doors() {
               <div className="relative aspect-[3/4] overflow-hidden rounded-t-full rounded-b-[20px] bg-brume">
                 <Image src={u.image} alt="" fill sizes="(min-width: 640px) 50vw, 50vw" className="object-cover transition-transform duration-1000 group-hover:scale-105" style={{ objectPosition: u.imageFocus }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-encre/70 via-transparent to-transparent" />
-                <h3 className="absolute bottom-3 left-0 right-0 text-center font-display text-[1.25rem] leading-none text-ivoire sm:text-[1.8rem]">{u.name}</h3>
+                <h3 className="absolute bottom-3 left-0 right-0 text-center font-display text-[1.25rem] leading-none text-ivoire sm:text-[1.8rem]">{u.fullName ?? u.name}</h3>
               </div>
               <p className="mt-3 text-[0.88rem] leading-snug text-nuit/75 sm:text-[1rem]">{u.cardLine}</p>
               <span className="mt-2 inline-flex items-center gap-1.5 border-b border-or pb-0.5 text-[0.62rem] font-semibold tracking-[0.12em] uppercase sm:text-[0.72rem]">

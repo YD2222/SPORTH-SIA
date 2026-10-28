@@ -29,7 +29,7 @@ export const businessLd = () => ({
   geo: { "@type": "GeoCoordinates", latitude: site.geo.lat, longitude: site.geo.lng },
   areaServed: { "@type": "City", name: "Paris" },
   parentOrganization: { "@type": "Organization", name: "PhysioGym" },
-  knowsAbout: ["Posture", "Posturologie", "Bilan postural", "Clinique OPS", "Composition corporelle", "Activité physique adaptée", "Bilan mobilité équilibre force", "Kinésiologie", "Massage bien-être", "Luminothérapie", "Récupération physique", "Cryolipolyse"],
+  knowsAbout: ["Posture", "Posturologie", "Bilan postural", "Clinique OPS", "Composition corporelle", "Activité physique adaptée", "Bilan mobilité équilibre force", "Kinésiologie", "Massage bien-être", "Luminothérapie", "Récupération physique", "Cryolipolyse", "Soins esthétiques du visage"],
 });
 
 export const servicesLd = (list: Service[], pageUrl: string) =>
