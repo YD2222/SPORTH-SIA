@@ -7,7 +7,7 @@ export const site = {
   tagline: "Votre corps, votre équilibre.",
   pillars: "Posture · Mouvement · Récupération · Silhouette",
   expertise: "Une expertise PhysioGym — Paris 7e",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.sporthesia.fr", // TODO domaine définitif
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://sporthesia.com",
   description:
     "SPORTHESIA, Paris 7e : posture, mouvement, récupération, silhouette et visage. Bilan ANOVATOR Découverte, bilan BODY 360, bilan postural AeroCore™, Clinique OPS, kinésiologie, cours de gym en petit groupe (4 max), massage bien-être, cryolipolyse.",
   address: {
