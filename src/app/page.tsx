@@ -147,10 +147,6 @@ export default function Home() {
               La kinésiologie de bien-être propose un espace d&apos;écoute et d&apos;accompagnement, dans une démarche non médicale, pour explorer certains
               ressentis et favoriser une meilleure attention à soi.
             </p>
-            <p className="border-l-2 border-or pl-5 text-base text-nuit/60">
-              Elle ne remplace ni un diagnostic médical, ni un traitement, ni un suivi psychologique lorsqu&apos;ils sont nécessaires. Prestations et tarifs
-              communiqués prochainement.
-            </p>
           </Reveal>
         </div>
       </section>

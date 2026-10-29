@@ -15,14 +15,14 @@ export const metadata: Metadata = {
 const team = [
   { role: "Posturologie — PhysioGym", scope: "Bilan postural AeroCore™, bilan ANOVATOR Découverte, BODY 360, Clinique OPS" },
   { role: "Activité physique adaptée — indépendant(e)", scope: "Bilan mobilité, équilibre et force ; cours de gym en petit groupe" },
-  { role: "Technologies de récupération physique", scope: "Luminothérapie, Lapex, MTT" },
+  { role: "Technologies de récupération physique", scope: "Luminothérapie, stimulation musculaire magnétique" },
   { role: "Bien-être — indépendant(e)", scope: "Massage de bien-être" },
   { role: "Esthétique — indépendant(e)", scope: "Cryolipolyse" },
   { role: "Kinésiologie — indépendant(e)", scope: "Bilan émotionnel en kinésiologie" },
 ];
 
 // Équipements réellement disponibles au lancement — aucun équipement futur.
-const equipment = ["AeroCore™ (bilan postural)", "ANOVATOR (mesures corporelles)", "Luminothérapie", "Cryolipolyse", "Lapex", "MTT"];
+const equipment = ["AeroCore™ (bilan postural)", "ANOVATOR (mesures corporelles)", "Luminothérapie", "Cryolipolyse", "Stimulation musculaire magnétique"];
 
 export default function Page() {
   return (
