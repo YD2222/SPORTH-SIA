@@ -331,8 +331,8 @@ export const universes: Universe[] = [
     image: "/images/silhouette-visage.webp",
     imageAlt: "Praticien SPORTHESIA réalisant un soin du visage avec un appareil, devant un écran d'analyse du visage",
     imageFocus: "54% 45%",
-    detailImage: "/images/silhouette-bilan.jpg",
-    detailImageAlt: "Praticienne SPORTHESIA mesurant le tour de taille d'une cliente, avec l'analyse ANOVATOR de la silhouette et du visage à l'écran",
+    detailImage: "/images/soin-silhouette.jpg",
+    detailImageAlt: "Praticien SPORTHESIA réalisant un soin silhouette sur la cuisse d'une cliente, avec l'écran d'analyse du corps à l'arrière-plan",
     keywords: "soin du visage Paris 7e, soins esthétiques visage, cryolipolyse Paris 7e, soin silhouette, HIFU, bilan ANOVATOR",
     seoTitle: "Soins silhouette et visage à Paris 7e — cryolipolyse",
     seoDescription:
@@ -665,8 +665,6 @@ export const services: Service[] = [
     anovator: { rule: "obligatoire", note: "Avant une première séance : évaluation corporelle et morphologique, discussion de vos objectifs et orientation, puis évaluation spécifique des indications et contre-indications." },
     universe: "silhouette",
     name: "Cryolipolyse — un applicateur",
-    image: "/images/soin-silhouette.jpg",
-    imageAlt: "Praticien SPORTHESIA réalisant un soin silhouette sur la cuisse d'une cliente, avec l'écran d'analyse du corps",
     summary:
       "Une technique esthétique utilisant le froid, proposée après vérification des contre-indications et de l'adéquation de la prestation.",
     durationMin: 60,
@@ -704,8 +702,6 @@ export const services: Service[] = [
     anovator: { rule: "obligatoire", note: "Avant une première séance : évaluation corporelle et morphologique, discussion de vos objectifs et orientation, puis évaluation spécifique des indications et contre-indications." },
     universe: "silhouette",
     name: "Cryolipolyse — deux applicateurs",
-    image: "/images/soin-silhouette.jpg",
-    imageAlt: "Praticien SPORTHESIA réalisant un soin silhouette sur la cuisse d'une cliente, avec l'écran d'analyse du corps",
     summary: "Deux zones traitées au cours de la même séance.",
     durationMin: 60,
     durationLabel: "60 min",
