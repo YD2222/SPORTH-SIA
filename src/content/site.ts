@@ -20,7 +20,7 @@ export const site = {
   /** Stations de métro les plus proches. */
   metro: ["Alma-Marceau", "Invalides", "École Militaire"],
   phone: "", // TODO
-  email: "contact@sporthesia.fr", // TODO
+  email: "contact@sporthesia.com",
   hours: [
     // TODO horaires définitifs
     { days: "Lundi – Vendredi", hours: "8h00 – 20h00" },

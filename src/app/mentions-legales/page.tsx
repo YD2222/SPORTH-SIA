@@ -10,18 +10,18 @@ export default function Page() {
       <section>
         <h2>Éditeur du site</h2>
         <p>
-          SPORTHESIA® est une marque déposée et un concept ; ce n&apos;est pas une société autonome. Le site pilote est exploité par PhysioGym, Paris 7e. Structure
-          juridique exploitante : <Todo>raison sociale, forme, capital</Todo>.
+          SPORTHESIA® est une marque déposée et un concept ; ce n&apos;est pas une société autonome. Le site pilote est exploité par PHYSIOGYM, société
+          d&apos;exercice libéral par actions simplifiée (SELAS).
           <br />
-          Siège : <Todo>adresse</Todo> — SIRET : <Todo>à compléter</Todo> — TVA intracommunautaire : <Todo>à compléter</Todo>.
+          Siège : 5 rue Cognacq-Jay, 75007 Paris — SIRET : 938 089 133 00020 — RCS Paris 938 089 133 — TVA intracommunautaire : FR09938089133.
           <br />
-          Directeur de la publication : <Todo>nom</Todo>. Contact : <a href={`mailto:${site.email}`}>{site.email}</a>.
+          Directeur de la publication : Joël Reisberg, Président. Contact : <a href={`mailto:${site.email}`}>{site.email}</a>.
         </p>
       </section>
       <section>
         <h2>Hébergement</h2>
         <p>
-          <Todo>Nom, adresse et téléphone de l&apos;hébergeur</Todo>.
+          Le site est hébergé par Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis — vercel.com.
         </p>
       </section>
       <section>
