@@ -138,7 +138,7 @@ export const universes: Universe[] = [
     keywords: "bilan postural Paris 7e, analyse posturale, AeroCore, posture",
     seoTitle: "Bilan postural AeroCore™ à Paris 7e",
     seoDescription:
-      "Bilan postural AeroCore™ de 60 minutes à Paris 7e : évaluation individualisée, restitution et dispositif personnel inclus (200 €). Séance de suivi postural.",
+      "Bilan postural AeroCore™ de 60 min à Paris 7e : évaluation individualisée, restitution et dispositif personnel inclus (200 €).",
     notes: [
       "Le recours à des évaluations complémentaires spécialisées, notamment Clinique OPS, pourra être envisagé lorsque cela est pertinent, sans être systématique.",
     ],
@@ -183,7 +183,7 @@ export const universes: Universe[] = [
     keywords: "cours collectif petit groupe Paris 7e, cours individuel one to one Paris 7e, coach APA, KINÉCOACH, mobilité, renforcement, activité physique adaptée",
     seoTitle: "Cours en petit groupe et cours individuels One to One à Paris 7e",
     seoDescription:
-      "Cours collectifs de 55 minutes limités à 4 participants (35 €, carnet de 5 séances 175 €) et cours individuels One to One de 45 minutes (70 €) avec un coach APA ou un kinésithérapeute (KINÉCOACH), à Paris 7e.",
+      "Cours de gym en petit groupe (4 max., 35 €) et cours individuels One to One (70 €) avec un coach APA ou un kinésithérapeute, à Paris 7e.",
     notes: [
       "Les séances pourront être encadrées par un professionnel qualifié en activité physique adaptée, notamment pour des adultes souhaitant reprendre une activité progressivement.",
     ],
@@ -336,7 +336,7 @@ export const universes: Universe[] = [
     keywords: "soin du visage Paris 7e, soins esthétiques visage, cryolipolyse Paris 7e, soin silhouette, HIFU, bilan ANOVATOR",
     seoTitle: "Soins silhouette et visage à Paris 7e — cryolipolyse",
     seoDescription:
-      "Soins du corps et du visage à Paris 7e : cryolipolyse (un applicateur 190 €, deux applicateurs 250 €, après un bilan ANOVATOR Découverte) et soins esthétiques du visage à venir. Sans promesse irréaliste.",
+      "Cryolipolyse à Paris 7e (190 € un applicateur, 250 € deux), après un bilan ANOVATOR Découverte. Soins du visage à venir. Sans promesse irréaliste.",
     notes: [
     ],
     soon: [
@@ -844,7 +844,7 @@ export const body360 = {
   imageCaption: "Illustration d'une évaluation corporelle accompagnée",
   seoTitle: "Bilan corporel ANOVATOR et BODY 360 à Paris 7e",
   seoDescription:
-    "Bilan ANOVATOR Découverte (35 €) : composition corporelle, repères posturaux et échange avec un professionnel. Bilan initial SPORTHESIA BODY 360 (160 €, option AeroCore™ facultative + 40 €) : 50 min d'entretien, d'analyse et de recommandations. Paris 7e.",
+    "Bilan ANOVATOR Découverte (35 €) : composition corporelle et repères posturaux. Bilan BODY 360 (160 €) : entretien, analyse et recommandations. Paris 7e.",
   faq: [
     {
       q: "Quelle différence entre les deux bilans ?",

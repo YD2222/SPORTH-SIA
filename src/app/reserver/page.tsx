@@ -4,7 +4,7 @@ import { CharlyButton } from "@/components/Charly";
 import { container } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Prendre rendez-vous",
+  title: "Prendre rendez-vous à Paris 7e",
   description: "Réservez en ligne votre bilan postural, cours en petit groupe, massage bien-être ou soin silhouette chez SPORTHESIA, Paris 7e.",
   alternates: { canonical: "/reserver" },
 };

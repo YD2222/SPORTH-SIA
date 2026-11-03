@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
     default: "SPORTHESIA — Posture, mouvement et bien-être à Paris 7e",
-    template: "%s · SPORTHESIA Paris 7e",
+    template: "%s · SPORTHESIA",
   },
   description: site.description,
   applicationName: site.name,
@@ -33,9 +33,15 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: "SPORTHESIA — Votre corps, votre équilibre.",
     description: site.description,
-    images: [{ url: "/images/hero.jpg", width: 2000, height: 3000, alt: "Posture d'équilibre dans un studio lumineux" }],
+    url: "/",
+    images: [{ url: "/images/og-sporthesia.jpg", width: 1200, height: 630, alt: "Posture d'équilibre dans un studio lumineux" }],
   },
-  twitter: { card: "summary_large_image" },
+  twitter: {
+    card: "summary_large_image",
+    title: "SPORTHESIA — Votre corps, votre équilibre.",
+    description: site.description,
+    images: ["/images/og-sporthesia.jpg"],
+  },
   alternates: { canonical: "/" },
   formatDetection: { telephone: false },
 };

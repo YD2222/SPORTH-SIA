@@ -14,7 +14,7 @@ export default function Page() {
       <section>
         <h2>Responsable du traitement</h2>
         <p>
-          <Todo>Structure exploitante</Todo>, joignable à <a href={`mailto:${site.email}`}>{site.email}</a>.
+          PHYSIOGYM (SELAS), 5 rue Cognacq-Jay, 75007 Paris, SIRET 938 089 133 00020, représentée par Joël Reisberg, Président, joignable à <a href={`mailto:${site.email}`}>{site.email}</a>.
         </p>
       </section>
       <section>

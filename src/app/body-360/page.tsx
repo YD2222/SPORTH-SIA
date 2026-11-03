@@ -18,7 +18,12 @@ export const metadata: Metadata = {
   title: body360.seoTitle,
   description: body360.seoDescription,
   alternates: { canonical: "/body-360" },
-  openGraph: { title: `${body360.fullName} · Paris 7e`, description: body360.seoDescription, url: "/body-360" },
+  openGraph: {
+    title: `${body360.fullName} · Paris 7e`,
+    description: body360.seoDescription,
+    url: "/body-360",
+    images: [{ url: "/images/body-360.jpg", alt: "Bilan SPORTHESIA BODY 360 à Paris 7e" }],
+  },
 };
 
 export default function Body360Page() {

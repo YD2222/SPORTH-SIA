@@ -5,9 +5,9 @@ import { expertiseIntro } from "@/content/expertise";
 import { signatures } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Notre expertise",
+  title: "Notre expertise à Paris 7e",
   description:
-    "Bilan SPORTHESIA BODY 360, bilan Clinique OPS, bilan émotionnel en kinésiologie, bilan mobilité, équilibre et force : l'expertise SPORTHESIA à Paris 7e, site pilote exploité par PhysioGym.",
+    "Bilans BODY 360, Clinique OPS, kinésiologie, mobilité, équilibre et force : l'expertise SPORTHESIA à Paris 7e, site pilote exploité par PhysioGym.",
   alternates: { canonical: "/expertise" },
 };
 

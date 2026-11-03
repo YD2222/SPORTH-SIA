@@ -6,7 +6,7 @@ import { btn } from "@/components/ui";
 import { site } from "@/content/site";
 
 export const metadata: Metadata = {
-  title: "Accès & contact",
+  title: "Accès, horaires et contact à Paris 7e",
   description: "SPORTHESIA, Paris 7e : adresse, horaires et contact. Réservez en ligne ou parlez à Charly.",
   alternates: { canonical: "/contact" },
 };

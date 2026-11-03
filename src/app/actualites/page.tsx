@@ -6,7 +6,7 @@ import { activeNews } from "@/content/news";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Actualités et offres du moment",
+  title: "Actualités et offres à Paris 7e",
   description: "Offres découverte, forfaits, événements et nouvelles prestations chez SPORTHESIA, Paris 7e.",
   alternates: { canonical: "/actualites" },
 };
